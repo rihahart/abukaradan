@@ -141,14 +141,14 @@ function WorkCarousel({ works }: { works: Work[] }) {
                   />
                 </div>
                 <div className="mt-4">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/45">
                     {w.studio}
                   </p>
-                  <h3 className="mt-2 font-serif text-lg leading-snug tracking-tight text-white md:text-xl">
+                  <h3 className="mt-2 font-serif text-lg leading-snug tracking-tight text-[#E8DDD0] md:text-xl">
                     {w.title}
                   </h3>
-                  <p className="mt-1 text-sm text-white/70">{w.role}</p>
-                  <p className="text-xs text-white/45">{w.accolade}</p>
+                  <p className="mt-1 text-sm text-[#E8DDD0]/70">{w.role}</p>
+                  <p className="text-xs text-[#E8DDD0]/45">{w.accolade}</p>
                 </div>
               </div>
             </div>
@@ -165,8 +165,8 @@ function WorkCarousel({ works }: { works: Work[] }) {
               onClick={() => emblaApi?.scrollTo(i)}
               className={`h-1.5 rounded-full transition-all ${
                 i === selectedIndex
-                  ? "w-6 bg-white"
-                  : "w-1.5 bg-white/30 hover:bg-white/50"
+                  ? "w-6 bg-[#E8DDD0]"
+                  : "w-1.5 bg-[#E8DDD0]/30 hover:bg-[#E8DDD0]/50"
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />
@@ -177,7 +177,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
           <button
             onClick={scrollPrev}
             disabled={!prevEnabled}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all hover:border-white/40 hover:text-white disabled:opacity-30 disabled:hover:border-white/20 disabled:hover:text-white/70"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E8DDD0]/20 text-[#E8DDD0]/70 transition-all hover:border-[#E8DDD0]/40 hover:text-[#E8DDD0] disabled:opacity-30 disabled:hover:border-[#E8DDD0]/20 disabled:hover:text-[#E8DDD0]/70"
             aria-label="Previous slide"
           >
             ←
@@ -185,7 +185,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
           <button
             onClick={scrollNext}
             disabled={!nextEnabled}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all hover:border-white/40 hover:text-white disabled:opacity-30 disabled:hover:border-white/20 disabled:hover:text-white/70"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E8DDD0]/20 text-[#E8DDD0]/70 transition-all hover:border-[#E8DDD0]/40 hover:text-[#E8DDD0] disabled:opacity-30 disabled:hover:border-[#E8DDD0]/20 disabled:hover:text-[#E8DDD0]/70"
             aria-label="Next slide"
           >
             →
@@ -210,15 +210,15 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
         <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-12 md:py-8">
-          <span className="font-serif text-base tracking-[0.2em] text-white/80">
+          <span className="font-serif text-base tracking-[0.2em] text-[#E8DDD0]/80">
             AA
           </span>
-          <nav className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.22em] text-white/85 md:flex">
+          <nav className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.22em] text-[#E8DDD0]/85 md:flex">
             {nav.map((n) => (
               <a
                 key={n.label}
                 href={n.href}
-                className="transition-colors hover:text-white"
+                className="transition-colors hover:text-[#E8DDD0]"
               >
                 {n.label}
               </a>
@@ -226,28 +226,28 @@ function Index() {
           </nav>
           <a
             href="mailto:hello@abukaradan.com"
-            className="text-[11px] font-medium uppercase tracking-[0.22em] text-white/85 md:hidden"
+            className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#E8DDD0]/85 md:hidden"
           >
             Contact
           </a>
         </header>
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-32 md:px-12 md:pt-28 md:pb-40">
-          <h1 className="font-serif text-[18vw] leading-[0.88] tracking-tight text-white md:text-[9rem] lg:text-[11rem]">
+          <h1 className="font-serif text-[18vw] leading-[0.88] tracking-tight text-[#E8DDD0] md:text-[9rem] lg:text-[11rem]">
             ABUKAR
             <br />
             ADAN
           </h1>
-          <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.32em] text-white/85">
+          <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.32em] text-[#E8DDD0]/85">
             Producer. Reporter. Editor. Showrunner.
           </p>
-          <p className="mt-8 max-w-md text-base leading-relaxed text-white/75 md:text-lg">
+          <p className="mt-8 max-w-md text-base leading-relaxed text-[#E8DDD0]/75 md:text-lg">
             I develop and produce narrative, investigative, and experimental
             stories — from the first idea to the final cut.
           </p>
           <a
             href="#work"
-            className="mt-10 inline-flex items-center gap-3 border-b border-white/40 pb-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-white transition-colors hover:border-white"
+            className="mt-10 inline-flex items-center gap-3 border-b border-[#E8DDD0]/40 pb-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#E8DDD0] transition-colors hover:border-[#E8DDD0]"
           >
             Explore the Work
             <span aria-hidden className="text-base leading-none">↓</span>
@@ -264,7 +264,7 @@ function Index() {
           <h2 className="font-serif text-3xl tracking-tight md:text-5xl">
             Selected Work
           </h2>
-          <span className="hidden text-[11px] uppercase tracking-[0.28em] text-white/50 md:block">
+          <span className="hidden text-[11px] uppercase tracking-[0.28em] text-[#E8DDD0]/50 md:block">
             2019 — Present
           </span>
         </div>
@@ -275,13 +275,13 @@ function Index() {
       {/* ABOUT */}
       <section
         id="about"
-        className="border-t border-white/10 bg-[#050505] px-6 py-24 md:px-12 md:py-32"
+        className="border-t border-[#E8DDD0]/10 bg-[#050505] px-6 py-24 md:px-12 md:py-32"
       >
         <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-5">
           <h2 className="font-serif text-3xl tracking-tight md:col-span-2 md:text-5xl">
             About
           </h2>
-          <div className="space-y-6 text-base leading-relaxed text-white/75 md:col-span-3 md:text-lg">
+          <div className="space-y-6 text-base leading-relaxed text-[#E8DDD0]/75 md:col-span-3 md:text-lg">
             <p>
               Abukar Adan is an audio producer, reporter, and editor whose work
               spans investigative journalism, narrative non-fiction, and
@@ -299,12 +299,12 @@ function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 px-6 py-10 md:px-12">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 text-[11px] uppercase tracking-[0.24em] text-white/50 md:flex-row md:items-center">
+      <footer className="border-t border-[#E8DDD0]/10 px-6 py-10 md:px-12">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 text-[11px] uppercase tracking-[0.24em] text-[#E8DDD0]/50 md:flex-row md:items-center">
           <span>© {new Date().getFullYear()} Abukar Adan</span>
           <a
             href="mailto:hello@abukaradan.com"
-            className="transition-colors hover:text-white"
+            className="transition-colors hover:text-[#E8DDD0]"
           >
             hello@abukaradan.com
           </a>
