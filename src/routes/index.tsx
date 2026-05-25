@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import portrait from "@/assets/abukar-adan.jpg";
 import wildBoys from "@/assets/podcasts/run-fool.webp";
 import runFool from "@/assets/podcasts/run-fool.webp";
@@ -89,6 +91,111 @@ const nav = [
   { label: "Contact", href: "mailto:hello@abukaradan.com" },
 ];
 
+function WorkCarousel({ works }: { works: Work[] }) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    loop: true,
+    skipSnaps: false,
+  });
+  const [prevEnabled, setPrevEnabled] = useState(false);
+  const [nextEnabled, setNextEnabled] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+    setPrevEnabled(emblaApi.canScrollPrev());
+    setNextEnabled(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
+  return (
+    <div className="relative">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-6 md:gap-8">
+          {works.map((w, i) => (
+            <div
+              key={w.title}
+              className="flex-[0_0_85%] min-w-0 sm:flex-[0_0_45%] md:flex-[0_0_32%]"
+            >
+              <div className="group">
+                <div className="relative aspect-square overflow-hidden bg-neutral-900">
+                  <img
+                    src={w.cover}
+                    alt={`${w.title} cover art`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="mt-4">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
+                    {w.studio}
+                  </p>
+                  <h3 className="mt-2 font-serif text-lg leading-snug tracking-tight text-white md:text-xl">
+                    {w.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-white/70">{w.role}</p>
+                  <p className="text-xs text-white/45">{w.accolade}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Controls */}
+      <div className="mt-8 flex items-center justify-between">
+        <div className="flex gap-2">
+          {works.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => emblaApi?.scrollTo(i)}
+              className={`h-1.5 rounded-full transition-all ${
+                i === selectedIndex
+                  ? "w-6 bg-white"
+                  : "w-1.5 bg-white/30 hover:bg-white/50"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <div className="flex gap-3">
+          <button
+            onClick={scrollPrev}
+            disabled={!prevEnabled}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all hover:border-white/40 hover:text-white disabled:opacity-30 disabled:hover:border-white/20 disabled:hover:text-white/70"
+            aria-label="Previous slide"
+          >
+            ←
+          </button>
+          <button
+            onClick={scrollNext}
+            disabled={!nextEnabled}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all hover:border-white/40 hover:text-white disabled:opacity-30 disabled:hover:border-white/20 disabled:hover:text-white/70"
+            aria-label="Next slide"
+          >
+            →
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Index() {
   return (
     <div className="min-h-screen bg-[#0b0b0b] text-neutral-100 antialiased">
@@ -148,7 +255,7 @@ function Index() {
         </div>
       </section>
 
-      {/* WORK GRID */}
+      {/* WORK CAROUSEL */}
       <section
         id="work"
         className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32"
@@ -162,30 +269,7 @@ function Index() {
           </span>
         </div>
 
-        <ul className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-3 lg:grid-cols-3">
-          {works.map((w) => (
-            <li key={w.title} className="group">
-              <div className="relative aspect-square overflow-hidden bg-neutral-900">
-                <img
-                  src={w.cover}
-                  alt={`${w.title} cover art`}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                />
-              </div>
-              <div className="mt-4">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
-                  {w.studio}
-                </p>
-                <h3 className="mt-2 font-serif text-lg leading-snug tracking-tight text-white md:text-xl">
-                  {w.title}
-                </h3>
-                <p className="mt-1 text-sm text-white/70">{w.role}</p>
-                <p className="text-xs text-white/45">{w.accolade}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <WorkCarousel works={works} />
       </section>
 
       {/* ABOUT */}
