@@ -150,7 +150,7 @@ function Index() {
         </div>
       </section>
 
-      {/* WORK GRID */}
+      {/* WORK CAROUSEL */}
       <section
         id="work"
         className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32"
@@ -164,30 +164,7 @@ function Index() {
           </span>
         </div>
 
-        <ul className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-3 lg:grid-cols-3">
-          {works.map((w) => (
-            <li key={w.title} className="group">
-              <div className="relative aspect-square overflow-hidden bg-neutral-900">
-                <img
-                  src={w.cover}
-                  alt={`${w.title} cover art`}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                />
-              </div>
-              <div className="mt-4">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
-                  {w.studio}
-                </p>
-                <h3 className="mt-2 font-serif text-lg leading-snug tracking-tight text-white md:text-xl">
-                  {w.title}
-                </h3>
-                <p className="mt-1 text-sm text-white/70">{w.role}</p>
-                <p className="text-xs text-white/45">{w.accolade}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <WorkCarousel works={works} />
       </section>
 
       {/* ABOUT */}
