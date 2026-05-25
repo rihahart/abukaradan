@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import portrait from "@/assets/abukar-adan.jpg";
 import wildBoys from "@/assets/podcasts/run-fool.webp";
 import runFool from "@/assets/podcasts/run-fool.webp";
