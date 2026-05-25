@@ -86,7 +86,6 @@ const works: Work[] = [
 const nav = [
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
-  { label: "Approach", href: "#approach" },
   { label: "Press", href: "#press" },
   { label: "Contact", href: "mailto:hello@abukaradan.com" },
 ];
