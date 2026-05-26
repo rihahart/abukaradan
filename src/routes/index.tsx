@@ -156,7 +156,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
 
   return (
     <div className="relative group/carousel mx-auto max-w-7xl md:max-w-none">
-      <div className="overflow-hidden px-6 md:px-0" ref={emblaRef}>
+      <div className="overflow-hidden px-6 md:px-6 lg:px-10" ref={emblaRef}>
         <div className="flex gap-3 md:gap-4">
           {works.map((w, i) => (
             <div
