@@ -375,6 +375,11 @@ function Index() {
                   <p className={`mt-1 text-[11px] uppercase tracking-[0.22em] ${w.accolade.includes('Signal Award') ? 'text-[#C9A96A]' : 'text-[#E8DDD0]/50'}`}>
                     {w.accolade}
                   </p>
+                  {w.title === 'Wild Boys' && (
+                    <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-[#C9A96A]">
+                      Ambie Winner — Podcast of the Year · #1 Apple Podcasts
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
