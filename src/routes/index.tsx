@@ -44,6 +44,13 @@ type Work = {
 
 const works: Work[] = [
   {
+    title: "Chameleon: Wild Boys",
+    cover: wildBoysCover,
+    studio: "A Campside Media Original",
+    role: "Producer",
+    accolade: "Narrative Mystery",
+  },
+  {
     title: "Run, Fool!",
     cover: runFool,
     studio: "Ballen Studios × Campside",
@@ -51,11 +58,11 @@ const works: Work[] = [
     accolade: "Signal Award Winner · 10M+ Downloads",
   },
   {
-    title: "Catch Me If You Ken",
-    cover: catchKen,
+    title: "Origin Stories",
+    cover: originStories,
     studio: "A Campside Media Original",
-    role: "Senior Producer",
-    accolade: "#1 Apple Podcasts",
+    role: "Executive Producer",
+    accolade: "Weekly Interviews",
   },
   {
     title: "Chameleon: Hollywood Con Queen",
@@ -63,6 +70,13 @@ const works: Work[] = [
     studio: "A Campside Media Original",
     role: "Lead Producer",
     accolade: "#2 Apple Podcasts",
+  },
+  {
+    title: "Catch Me If You Ken",
+    cover: catchKen,
+    studio: "A Campside Media Original",
+    role: "Senior Producer",
+    accolade: "#1 Apple Podcasts",
   },
   {
     title: "Chameleon: Dr. Dante",
@@ -79,11 +93,11 @@ const works: Work[] = [
     accolade: "Investigative Documentary",
   },
   {
-    title: "Origin Stories",
-    cover: originStories,
-    studio: "A Campside Media Original",
-    role: "Executive Producer",
-    accolade: "Weekly Interviews",
+    title: "We Came to the Forest",
+    cover: weCameToTheForest,
+    studio: "Wondery · Campside · Tenderfoot",
+    role: "Producer",
+    accolade: "Documentary Series",
   },
   {
     title: "Cover Up: The Anthrax Threat",
@@ -98,20 +112,6 @@ const works: Work[] = [
     studio: "Audible Original",
     role: "Producer",
     accolade: "with Sean Flynn",
-  },
-  {
-    title: "We Came to the Forest",
-    cover: weCameToTheForest,
-    studio: "Wondery · Campside · Tenderfoot",
-    role: "Producer",
-    accolade: "Documentary Series",
-  },
-  {
-    title: "Chameleon: Wild Boys",
-    cover: wildBoysCover,
-    studio: "A Campside Media Original",
-    role: "Producer",
-    accolade: "Narrative Mystery",
   },
 ];
 
