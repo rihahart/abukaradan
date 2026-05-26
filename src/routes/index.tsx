@@ -256,15 +256,6 @@ function Index() {
         id="work"
         className="relative z-20 mx-auto -mt-40 max-w-7xl px-6 pb-24 md:-mt-56 md:px-12 md:pb-32"
       >
-        <div className="mb-12 flex items-end justify-between gap-6">
-          <h2 className="font-serif text-3xl tracking-tight md:text-5xl">
-            Selected Work
-          </h2>
-          <span className="hidden text-[11px] uppercase tracking-[0.28em] text-[#E8DDD0]/50 md:block">
-            2019 — Present
-          </span>
-        </div>
-
         <WorkCarousel works={works} />
       </section>
 
