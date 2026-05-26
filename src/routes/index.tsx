@@ -295,7 +295,9 @@ function Index() {
             ADAN
           </h1>
           <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.32em] text-[#E8DDD0]/85">
-            Producer. Reporter. Editor. Showrunner.
+            Producer. Reporter.{" "}
+            <br className="md:hidden" />
+            Editor. Showrunner.
           </p>
           <p className="mt-8 max-w-md text-base leading-relaxed text-[#E8DDD0]/75 md:text-lg">
             I develop and produce narrative, investigative, and experimental
