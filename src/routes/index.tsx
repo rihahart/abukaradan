@@ -288,7 +288,7 @@ function Index() {
         </header>
 
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-32 md:px-12 md:pt-28 md:pb-40">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-8 pb-32 md:px-12 md:pt-28 md:pb-40">
           <h1 className="font-serif text-[18vw] leading-[0.88] tracking-tight text-[#E8DDD0] md:text-[9rem] lg:text-[11rem]">
             ABUKAR
             <br />
