@@ -348,7 +348,7 @@ function Index() {
         className="border-t border-[#E8DDD0]/10 bg-black px-6 py-20 md:px-12 md:py-40"
       >
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-8 font-serif text-4xl tracking-tight text-[#E8DDD0] md:mb-12 md:text-6xl lg:text-7xl">
+          <h2 className="mb-8 font-serif text-4xl tracking-tight text-[#C9A96A] md:mb-12 md:text-6xl lg:text-7xl">
             AWARD-WINNING
           </h2>
           <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:mt-16 md:gap-10">
