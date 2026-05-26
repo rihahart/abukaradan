@@ -190,7 +190,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
 
 
       {/* Controls */}
-      <div className="mt-12 flex items-center justify-end md:justify-between px-6 md:px-12">
+      <div className="mt-4 md:mt-12 flex items-center justify-end md:justify-between px-6 md:px-12">
         <a
           href="#work"
           className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/70 transition-colors hover:text-[#E8DDD0]"
@@ -318,7 +318,7 @@ function Index() {
       {/* ABOUT */}
       <section
         id="about"
-        className="border-t border-[#E8DDD0]/10 bg-black px-6 py-24 md:px-12 md:py-32"
+        className="border-t border-[#E8DDD0]/10 bg-black px-6 py-8 md:px-12 md:py-32"
       >
         <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-5">
           <h2 className="font-serif text-3xl tracking-tight md:col-span-2 md:text-5xl">
