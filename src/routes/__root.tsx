@@ -84,6 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       {
         rel: "stylesheet",
+        href: "https://use.typekit.net/fhn0phh.css",
+      },
+      {
+        rel: "stylesheet",
         href: appCss,
       },
     ],
