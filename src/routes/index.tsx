@@ -264,12 +264,30 @@ function Index() {
               </a>
             ))}
           </nav>
-          <a
-            href="mailto:hello@abukaradan.com"
-            className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#E8DDD0]/85 md:hidden"
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="ml-auto flex items-center justify-center text-[#E8DDD0]/85 md:hidden"
+            aria-label="Toggle menu"
           >
-            Contact
-          </a>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          {isMenuOpen && (
+            <div className="absolute top-full right-0 z-50 mt-2 w-48 rounded-lg border border-[#E8DDD0]/10 bg-black/95 p-4 shadow-xl backdrop-blur md:hidden">
+              <nav className="flex flex-col gap-4 text-[11px] font-medium uppercase tracking-[0.22em] text-[#E8DDD0]/85">
+                {nav.map((n) => (
+                  <a
+                    key={n.label}
+                    href={n.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="transition-colors hover:text-[#E8DDD0]"
+                  >
+                    {n.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          )}
         </header>
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-32 md:px-12 md:pt-28 md:pb-40">
