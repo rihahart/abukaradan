@@ -198,7 +198,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
           See all
         </a>
 
-        <div className="flex gap-2">
+        <div className="hidden md:flex gap-2">
           {works.map((_, i) => (
             <button
               key={i}
