@@ -251,7 +251,7 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
-        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-12 md:py-8">
+        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 pt-6 pb-2 md:px-12 md:py-8">
           <nav className="ml-auto hidden gap-8 text-[11px] font-medium uppercase tracking-[0.22em] text-[#E8DDD0]/85 md:flex">
             {nav.map((n) => (
               <a
