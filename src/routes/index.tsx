@@ -182,7 +182,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
                   <p className="mt-0.5 text-xs text-[#E8DDD0]/70">{w.role}</p>
                   <p className={`text-[11px] ${w.accolade.includes('Signal Award') ? 'text-[#C9A96A]' : 'text-[#E8DDD0]/45'}`}>{w.accolade}</p>
                   {w.title === 'Wild Boys' && (
-                    <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-[#C9A96A]">Ambie Winner — Podcast of the Year · #1 Apple Podcasts</p>
+                    <p className="mt-1 text-[11px] tracking-[1px] text-[#C9A96A]">Ambie Winner — Podcast of the Year · #1 Apple Podcasts</p>
                   )}
                 </div>
               </div>
@@ -379,7 +379,7 @@ function Index() {
                     {w.accolade}
                   </p>
                   {w.title === 'Wild Boys' && (
-                    <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-[#C9A96A]">
+                    <p className="mt-1 text-[11px] tracking-[1px] text-[#C9A96A]">
                       Ambie Winner — Podcast of the Year · #1 Apple Podcasts
                     </p>
                   )}
