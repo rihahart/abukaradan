@@ -245,11 +245,11 @@ function Index() {
   return (
     <div className="min-h-screen bg-black text-neutral-100 antialiased">
       {/* HERO */}
-      <section className="relative min-h-[100svh] w-full overflow-hidden">
+      <section className="relative h-[100svh] w-full overflow-hidden min-[1600px]:h-[88svh] min-[1900px]:h-[82svh]">
         <img
           src={portrait}
           alt="Abukar Adan on location with field recording gear"
-          className="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-[60%_center] lg:object-[50%_center] xl:object-[45%_center] min-[1600px]:object-[45%_top]"
+          className="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-[60%_center] lg:object-[50%_center] xl:object-[45%_center] min-[1600px]:object-[47%_0%] min-[1900px]:object-[50%_0%]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
