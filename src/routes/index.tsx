@@ -212,7 +212,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
           ))}
         </div>
 
-        <div className="flex gap-3">
+        <div className="hidden lg:flex gap-3">
           <button
             onClick={scrollPrev}
             disabled={!prevEnabled}
