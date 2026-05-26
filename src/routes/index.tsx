@@ -122,32 +122,32 @@ function WorkCarousel({ works }: { works: Work[] }) {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="relative">
+    <div className="relative group/carousel">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-6 md:gap-8">
+        <div className="flex gap-3 md:gap-4 pl-6 md:pl-12 pr-6 md:pr-12">
           {works.map((w, i) => (
             <div
               key={w.title}
-              className="flex-[0_0_85%] min-w-0 sm:flex-[0_0_45%] md:flex-[0_0_32%]"
+              className="flex-[0_0_60%] min-w-0 sm:flex-[0_0_32%] md:flex-[0_0_22%] lg:flex-[0_0_16.5%]"
             >
-              <div className="group">
-                <div className="relative aspect-square overflow-hidden bg-neutral-900">
+              <div className="group cursor-pointer">
+                <div className="relative aspect-[2/3] overflow-hidden bg-neutral-900 rounded-sm">
                   <img
                     src={w.cover}
                     alt={`${w.title} cover art`}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
                   />
                 </div>
-                <div className="mt-4">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/45">
+                <div className="mt-3">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/45">
                     {w.studio}
                   </p>
-                  <h3 className="mt-2 font-serif text-lg leading-snug tracking-tight text-[#E8DDD0] md:text-xl">
+                  <h3 className="mt-1.5 font-serif text-sm leading-snug tracking-tight text-[#E8DDD0] md:text-base">
                     {w.title}
                   </h3>
-                  <p className="mt-1 text-sm text-[#E8DDD0]/70">{w.role}</p>
-                  <p className="text-xs text-[#E8DDD0]/45">{w.accolade}</p>
+                  <p className="mt-0.5 text-xs text-[#E8DDD0]/70">{w.role}</p>
+                  <p className="text-[11px] text-[#E8DDD0]/45">{w.accolade}</p>
                 </div>
               </div>
             </div>
@@ -155,8 +155,9 @@ function WorkCarousel({ works }: { works: Work[] }) {
         </div>
       </div>
 
+
       {/* Controls */}
-      <div className="mt-8 flex items-center justify-between">
+      <div className="mt-6 flex items-center justify-between px-6 md:px-12">
         <div className="flex gap-2">
           {works.map((_, i) => (
             <button
@@ -176,7 +177,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
           <button
             onClick={scrollPrev}
             disabled={!prevEnabled}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E8DDD0]/20 text-[#E8DDD0]/70 transition-all hover:border-[#E8DDD0]/40 hover:text-[#E8DDD0] disabled:opacity-30 disabled:hover:border-[#E8DDD0]/20 disabled:hover:text-[#E8DDD0]/70"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E8DDD0]/20 text-[#E8DDD0]/70 transition-all hover:border-[#E8DDD0]/40 hover:text-[#E8DDD0] disabled:opacity-30"
             aria-label="Previous slide"
           >
             ←
@@ -184,13 +185,14 @@ function WorkCarousel({ works }: { works: Work[] }) {
           <button
             onClick={scrollNext}
             disabled={!nextEnabled}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E8DDD0]/20 text-[#E8DDD0]/70 transition-all hover:border-[#E8DDD0]/40 hover:text-[#E8DDD0] disabled:opacity-30 disabled:hover:border-[#E8DDD0]/20 disabled:hover:text-[#E8DDD0]/70"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E8DDD0]/20 text-[#E8DDD0]/70 transition-all hover:border-[#E8DDD0]/40 hover:text-[#E8DDD0] disabled:opacity-30"
             aria-label="Next slide"
           >
             →
           </button>
         </div>
       </div>
+
     </div>
   );
 }
@@ -247,10 +249,11 @@ function Index() {
       {/* WORK CAROUSEL */}
       <section
         id="work"
-        className="relative z-20 mx-auto -mt-40 max-w-7xl px-6 pb-24 md:-mt-56 md:px-12 md:pb-32"
+        className="relative z-20 -mt-40 w-full pb-24 md:-mt-56 md:pb-32"
       >
         <WorkCarousel works={works} />
       </section>
+
 
       {/* ABOUT */}
       <section
