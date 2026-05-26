@@ -155,13 +155,13 @@ function WorkCarousel({ works }: { works: Work[] }) {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="relative group/carousel mx-auto max-w-7xl">
-      <div className="overflow-hidden px-6 md:px-12" ref={emblaRef}>
+    <div className="relative group/carousel mx-auto max-w-7xl md:max-w-none">
+      <div className="overflow-hidden px-6 md:px-6 lg:px-10" ref={emblaRef}>
         <div className="flex gap-3 md:gap-4">
           {works.map((w, i) => (
             <div
               key={w.title}
-              className="flex-[0_0_60%] min-w-0 sm:flex-[0_0_32%] md:flex-[0_0_22%] lg:flex-[0_0_16.5%]"
+              className="flex-[0_0_60%] min-w-0 sm:flex-[0_0_32%] md:flex-[0_0_25%] lg:flex-[0_0_20%]"
             >
               <div className="group cursor-pointer">
                 <div className="relative aspect-square overflow-hidden bg-neutral-900 rounded-sm">
@@ -192,7 +192,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
 
 
       {/* Controls */}
-      <div className="mt-8 md:mt-12 flex items-center justify-start md:justify-between px-6 md:px-12">
+      <div className="mt-8 md:mt-12 flex items-center justify-start md:justify-between px-6 md:px-6 lg:px-10">
         <a
           href="#work"
           className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/70 transition-colors hover:text-[#E8DDD0]"
