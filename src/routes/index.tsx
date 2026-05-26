@@ -254,7 +254,7 @@ function Index() {
       {/* WORK CAROUSEL */}
       <section
         id="work"
-        className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32"
+        className="relative z-20 mx-auto -mt-40 max-w-7xl px-6 pb-24 md:-mt-56 md:px-12 md:pb-32"
       >
         <div className="mb-12 flex items-end justify-between gap-6">
           <h2 className="font-serif text-3xl tracking-tight md:text-5xl">
