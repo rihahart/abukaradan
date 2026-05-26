@@ -266,7 +266,7 @@ function Index() {
           </nav>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="ml-auto flex items-center justify-center text-[#E8DDD0]/85 md:hidden"
+            className="ml-auto -mr-2 flex items-center justify-center p-2 text-[#E8DDD0]/85 md:hidden"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
