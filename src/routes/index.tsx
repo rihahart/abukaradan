@@ -342,6 +342,46 @@ function Index() {
         </div>
       </section>
 
+      {/* AWARD-WINNING */}
+      <section
+        id="award-winning"
+        className="border-t border-[#E8DDD0]/10 bg-black px-6 py-12 md:px-12 md:py-32"
+      >
+        <div className="mx-auto max-w-7xl">
+          <h2 className="font-serif text-4xl tracking-tight text-[#E8DDD0] md:text-6xl lg:text-7xl">
+            AWARD-WINNING
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:mt-16 md:gap-10">
+            {works.slice(0, 2).map((w) => (
+              <div key={w.title} className="group cursor-pointer">
+                <div className="relative aspect-square overflow-hidden rounded-sm bg-neutral-900">
+                  <img
+                    src={w.cover}
+                    alt={`${w.title} cover art`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+                  />
+                </div>
+                <div className="mt-4">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#E8DDD0]/50">
+                    {w.studio}
+                  </p>
+                  <h3 className="mt-3 font-serif text-2xl tracking-tight text-[#E8DDD0] md:text-3xl">
+                    {w.title}
+                  </h3>
+                  <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/70">
+                    {w.role}
+                  </p>
+                  <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-[#E8DDD0]/50">
+                    {w.accolade}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="border-t border-[#E8DDD0]/10 px-6 py-6 md:px-12 md:py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 text-[11px] uppercase tracking-[0.24em] text-[#E8DDD0]/50 md:flex-row md:items-center">
