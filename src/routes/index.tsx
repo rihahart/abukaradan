@@ -161,7 +161,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
           {works.map((w, i) => (
             <div
               key={w.title}
-              className="flex-[0_0_60%] min-w-0 sm:flex-[0_0_32%] md:flex-[0_0_22%] lg:flex-[0_0_16.5%]"
+              className="flex-[0_0_60%] min-w-0 sm:flex-[0_0_32%] md:flex-[0_0_25%] lg:flex-[0_0_20%]"
             >
               <div className="group cursor-pointer">
                 <div className="relative aspect-square overflow-hidden bg-neutral-900 rounded-sm">
