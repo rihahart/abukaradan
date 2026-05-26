@@ -189,7 +189,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
 
 
       {/* Controls */}
-      <div className="mt-6 flex items-center justify-between px-6 md:px-12">
+      <div className="mt-12 flex items-center justify-between px-6 md:px-12">
         <a
           href="#work"
           className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/70 transition-colors hover:text-[#E8DDD0]"
