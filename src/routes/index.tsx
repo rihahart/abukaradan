@@ -180,7 +180,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
                     {w.title}
                   </h3>
                   <p className="mt-0.5 text-xs text-[#E8DDD0]/70">{w.role}</p>
-                  <p className="text-[11px] text-[#E8DDD0]/45">{w.accolade}</p>
+                  <p className={`text-[11px] ${w.accolade.includes('Signal Award') ? 'text-[#C9A96A]' : 'text-[#E8DDD0]/45'}`}>{w.accolade}</p>
                 </div>
               </div>
             </div>
@@ -348,7 +348,7 @@ function Index() {
         className="border-t border-[#E8DDD0]/10 bg-black px-6 py-20 md:px-12 md:py-40"
       >
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-8 font-serif text-4xl tracking-tight text-[#C9A96A] md:mb-12 md:text-6xl lg:text-7xl">
+          <h2 className="mb-8 font-serif text-4xl tracking-tight text-[#E8DDD0] md:mb-12 md:text-6xl lg:text-7xl">
             AWARD-WINNING
           </h2>
           <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:mt-16 md:gap-10">
@@ -372,7 +372,7 @@ function Index() {
                   <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/70">
                     {w.role}
                   </p>
-                  <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-[#E8DDD0]/50">
+                  <p className={`mt-1 text-[11px] uppercase tracking-[0.22em] ${w.accolade.includes('Signal Award') ? 'text-[#C9A96A]' : 'text-[#E8DDD0]/50'}`}>
                     {w.accolade}
                   </p>
                 </div>
