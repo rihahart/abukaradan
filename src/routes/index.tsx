@@ -241,13 +241,6 @@ function Index() {
             I develop and produce narrative, investigative, and experimental
             stories — from the first idea to the final cut.
           </p>
-          <a
-            href="#work"
-            className="mt-10 inline-flex items-center gap-3 border-b border-[#E8DDD0]/40 pb-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#E8DDD0] transition-colors hover:border-[#E8DDD0]"
-          >
-            Explore the Work
-            <span aria-hidden className="text-base leading-none">↓</span>
-          </a>
         </div>
       </section>
 
