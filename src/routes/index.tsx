@@ -288,18 +288,18 @@ function Index() {
         </header>
 
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-8 pb-32 md:px-12 md:pt-28 md:pb-40">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-8 pb-16 md:px-12 md:pt-28 md:pb-40">
           <h1 className="font-serif text-[18vw] leading-[0.88] tracking-tight text-[#E8DDD0] md:text-[9rem] lg:text-[11rem]">
             ABUKAR
             <br />
             ADAN
           </h1>
-          <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.32em] text-[#E8DDD0]/85">
+          <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-[#E8DDD0]/85">
             Producer. Reporter.{" "}
             <br className="md:hidden" />
             Editor. Showrunner.
           </p>
-          <p className="mt-8 max-w-md text-base leading-relaxed text-[#E8DDD0]/75 md:text-lg">
+          <p className="mt-4 max-w-md text-base leading-relaxed text-[#E8DDD0]/75 md:text-lg">
             I develop and produce narrative, investigative, and experimental
             stories — from the first idea to the final cut.
           </p>
@@ -309,7 +309,7 @@ function Index() {
       {/* WORK CAROUSEL */}
       <section
         id="work"
-        className="relative z-20 -mt-80 w-full pb-24 md:-mt-56 md:pb-32"
+        className="relative z-20 -mt-80 w-full pb-8 md:-mt-56 md:pb-32"
       >
         <WorkCarousel works={works} />
       </section>
@@ -318,13 +318,13 @@ function Index() {
       {/* ABOUT */}
       <section
         id="about"
-        className="border-t border-[#E8DDD0]/10 bg-black px-6 py-8 md:px-12 md:py-32"
+        className="border-t border-[#E8DDD0]/10 bg-black px-6 py-6 md:px-12 md:py-32"
       >
-        <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-5">
+        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-5 md:gap-12">
           <h2 className="font-serif text-3xl tracking-tight md:col-span-2 md:text-5xl">
             About
           </h2>
-          <div className="space-y-6 text-base leading-relaxed text-[#E8DDD0]/75 md:col-span-3 md:text-lg">
+          <div className="space-y-4 text-base leading-relaxed text-[#E8DDD0]/75 md:col-span-3 md:space-y-6 md:text-lg">
             <p>
               Abukar Adan is an audio producer, reporter, and editor whose work
               spans investigative journalism, narrative non-fiction, and
@@ -342,7 +342,7 @@ function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-[#E8DDD0]/10 px-6 py-10 md:px-12">
+      <footer className="border-t border-[#E8DDD0]/10 px-6 py-6 md:px-12 md:py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 text-[11px] uppercase tracking-[0.24em] text-[#E8DDD0]/50 md:flex-row md:items-center">
           <span>© {new Date().getFullYear()} Abukar Adan</span>
           <a
