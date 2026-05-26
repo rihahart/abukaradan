@@ -9,6 +9,10 @@ import drDante from "@/assets/podcasts/dr-dante.webp";
 import catchKen from "@/assets/podcasts/catch-me-if-you-ken.webp";
 import nightShift from "@/assets/podcasts/night-shift.webp";
 import originStories from "@/assets/podcasts/origin-stories.webp";
+import anthraxThreat from "@/assets/podcasts/anthrax-threat.webp";
+import theBering from "@/assets/podcasts/the-bering.webp";
+import weCameToTheForest from "@/assets/podcasts/we-came-to-the-forest.webp";
+import wildBoysCover from "@/assets/podcasts/wild-boys.webp";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -80,6 +84,34 @@ const works: Work[] = [
     studio: "A Campside Media Original",
     role: "Executive Producer",
     accolade: "Weekly Interviews",
+  },
+  {
+    title: "Cover Up: The Anthrax Threat",
+    cover: anthraxThreat,
+    studio: "Sony Music · The Binge",
+    role: "Producer",
+    accolade: "Investigative Series",
+  },
+  {
+    title: "The Bering",
+    cover: theBering,
+    studio: "Audible Original",
+    role: "Producer",
+    accolade: "with Sean Flynn",
+  },
+  {
+    title: "We Came to the Forest",
+    cover: weCameToTheForest,
+    studio: "Wondery · Campside · Tenderfoot",
+    role: "Producer",
+    accolade: "Documentary Series",
+  },
+  {
+    title: "Chameleon: Wild Boys",
+    cover: wildBoysCover,
+    studio: "A Campside Media Original",
+    role: "Producer",
+    accolade: "Narrative Mystery",
   },
 ];
 
