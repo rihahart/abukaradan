@@ -251,7 +251,7 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
-        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-12 md:py-8">
+        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 pt-6 pb-2 md:px-12 md:py-8">
           <nav className="ml-auto hidden gap-8 text-[11px] font-medium uppercase tracking-[0.22em] text-[#E8DDD0]/85 md:flex">
             {nav.map((n) => (
               <a
@@ -288,7 +288,7 @@ function Index() {
         </header>
 
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-32 md:px-12 md:pt-28 md:pb-40">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-8 pb-32 md:px-12 md:pt-28 md:pb-40">
           <h1 className="font-serif text-[18vw] leading-[0.88] tracking-tight text-[#E8DDD0] md:text-[9rem] lg:text-[11rem]">
             ABUKAR
             <br />
