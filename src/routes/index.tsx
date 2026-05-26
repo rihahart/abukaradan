@@ -180,9 +180,8 @@ function WorkCarousel({ works }: { works: Work[] }) {
                     {w.title}
                   </h3>
                   <p className="mt-0.5 text-xs text-[#E8DDD0]/70">{w.role}</p>
-                  <p className={`text-[11px] ${w.accolade.includes('Signal Award') ? 'text-[#C9A96A]' : 'text-[#E8DDD0]/45'}`}>{w.accolade}</p>
-                  {w.title === 'Wild Boys' && (
-                    <p className="mt-1 text-[11px] tracking-[1px] text-[#C9A96A]">Ambie Winner — Podcast of the Year · #1 Apple Podcasts</p>
+                  {w.title !== 'Wild Boys' && w.title !== 'Run, Fool!' && (
+                    <p className={`text-[11px] ${w.accolade.includes('Signal Award') ? 'text-[#C9A96A]' : 'text-[#E8DDD0]/45'}`}>{w.accolade}</p>
                   )}
                 </div>
               </div>
