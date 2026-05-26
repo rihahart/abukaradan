@@ -379,7 +379,7 @@ function Index() {
                     {w.accolade}
                   </p>
                   {w.title === 'Wild Boys' && (
-                    <p className="mt-1 text-[11px] tracking-[1px] text-[#C9A96A]">
+                    <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-[#C9A96A]">
                       Ambie Winner — Podcast of the Year · #1 Apple Podcasts
                     </p>
                   )}
