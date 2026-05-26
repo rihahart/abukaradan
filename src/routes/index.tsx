@@ -249,7 +249,7 @@ function Index() {
         <img
           src={portrait}
           alt="Abukar Adan on location with field recording gear"
-          className="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-[65%_center]"
+          className="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-[60%_center] lg:object-[50%_center] xl:object-[45%_center]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
