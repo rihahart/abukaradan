@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import portrait from "@/assets/abukar-adan.jpg";
 import wildBoys from "@/assets/podcasts/run-fool.webp";
@@ -237,6 +238,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
 }
 
 function Index() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-black text-neutral-100 antialiased">
       {/* HERO */}
@@ -261,7 +263,30 @@ function Index() {
               </a>
             ))}
           </nav>
+          <button
+            type="button"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setIsMenuOpen((v) => !v)}
+            className="ml-auto -mr-2 p-2 text-[#E8DDD0] md:hidden"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+          {isMenuOpen && (
+            <div className="absolute top-full right-6 z-50 mt-2 flex flex-col gap-4 rounded-md bg-black/95 px-6 py-5 text-[11px] font-medium uppercase tracking-[0.22em] text-[#E8DDD0]/85 md:hidden">
+              {nav.map((n) => (
+                <a
+                  key={n.label}
+                  href={n.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="transition-colors hover:text-[#E8DDD0]"
+                >
+                  {n.label}
+                </a>
+              ))}
+            </div>
+          )}
         </header>
+
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-32 md:px-12 md:pt-28 md:pb-40">
           <h1 className="font-serif text-[18vw] leading-[0.88] tracking-tight text-[#E8DDD0] md:text-[9rem] lg:text-[11rem]">
