@@ -345,7 +345,7 @@ function Index() {
       {/* AWARD-WINNING */}
       <section
         id="award-winning"
-        className="border-t border-[#E8DDD0]/10 bg-black px-6 py-12 md:px-12 md:py-32"
+        className="border-t border-[#E8DDD0]/10 bg-black px-6 py-20 md:px-12 md:py-40"
       >
         <div className="mx-auto max-w-7xl">
           <h2 className="font-serif text-4xl tracking-tight text-[#E8DDD0] md:text-6xl lg:text-7xl">
