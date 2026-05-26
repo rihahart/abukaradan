@@ -176,7 +176,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
                   <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/45">
                     {w.studio}
                   </p>
-                  <h3 className="mt-1.5 font-serif text-sm leading-snug tracking-tight text-[#E8DDD0] md:text-base">
+                  <h3 className="mt-1.5 font-serif text-sm font-bold leading-snug tracking-tight text-[#E8DDD0] md:text-base">
                     {w.title}
                   </h3>
                   <p className="mt-0.5 text-xs text-[#E8DDD0]/70">{w.role}</p>
@@ -366,7 +366,7 @@ function Index() {
                   <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#E8DDD0]/50">
                     {w.studio}
                   </p>
-                  <h3 className="mt-3 font-serif text-2xl tracking-tight text-[#E8DDD0] md:text-3xl">
+                  <h3 className="mt-3 font-serif text-2xl font-bold tracking-tight text-[#E8DDD0] md:text-3xl">
                     {w.title}
                   </h3>
                   <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/70">
