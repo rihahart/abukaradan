@@ -40,6 +40,13 @@ type Work = {
 
 const works: Work[] = [
   {
+    title: "Run, Fool!",
+    cover: runFool,
+    studio: "Ballen Studios × Campside",
+    role: "Showrunner",
+    accolade: "Signal Award Winner · 10M+ Downloads",
+  },
+  {
     title: "Catch Me If You Ken",
     cover: catchKen,
     studio: "A Campside Media Original",
@@ -59,13 +66,6 @@ const works: Work[] = [
     studio: "A Campside Media Original",
     role: "Producer",
     accolade: "Master of Deception",
-  },
-  {
-    title: "Run, Fool!",
-    cover: runFool,
-    studio: "Ballen Studios × Campside",
-    role: "Showrunner",
-    accolade: "Signal Award Winner · 10M+ Downloads",
   },
   {
     title: "Witnessed: Night Shift",
