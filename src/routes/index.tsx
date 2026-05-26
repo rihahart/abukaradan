@@ -45,7 +45,7 @@ type Work = {
 
 const works: Work[] = [
   {
-    title: "Chameleon: Wild Boys",
+    title: "Wild Boys",
     cover: wildBoysCover,
     studio: "A Campside Media Original",
     role: "Producer",
