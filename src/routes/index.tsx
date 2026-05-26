@@ -245,7 +245,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-black text-neutral-100 antialiased">
       {/* HERO */}
-      <section className="relative min-h-[100svh] w-full overflow-hidden">
+      <section className="relative h-[100svh] w-full overflow-hidden min-[1600px]:h-[88svh] min-[1900px]:h-[82svh]">
         <img
           src={portrait}
           alt="Abukar Adan on location with field recording gear"
