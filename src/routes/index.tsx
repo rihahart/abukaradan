@@ -288,7 +288,7 @@ function Index() {
       {/* WORK CAROUSEL */}
       <section
         id="work"
-        className="relative z-20 -mt-52 w-full pb-24 md:-mt-56 md:pb-32"
+        className="relative z-20 -mt-64 w-full pb-24 md:-mt-56 md:pb-32"
       >
         <WorkCarousel works={works} />
       </section>
