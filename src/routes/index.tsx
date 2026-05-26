@@ -238,6 +238,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
 }
 
 function Index() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-black text-neutral-100 antialiased">
       {/* HERO */}
