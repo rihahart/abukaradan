@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ChevronRight, Menu, X } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import portrait from "@/assets/abukar-adan.jpg";
 import wildBoys from "@/assets/podcasts/run-fool.webp";
@@ -193,9 +193,10 @@ function WorkCarousel({ works }: { works: Work[] }) {
       <div className="mt-8 md:mt-12 flex items-center justify-end md:justify-between px-6 md:px-12">
         <a
           href="#work"
-          className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/70 transition-colors hover:text-[#E8DDD0]"
+          className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/70 transition-colors hover:text-[#E8DDD0]"
         >
           See all
+          <ChevronRight size={14} strokeWidth={2.5} />
         </a>
 
         <div className="hidden md:flex gap-2">
