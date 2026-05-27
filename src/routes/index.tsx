@@ -1,19 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
-import { ChevronRight, Menu, X } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import portrait from "@/assets/abukar-adan.jpg";
-import wildBoys from "@/assets/podcasts/run-fool.webp";
-import runFool from "@/assets/podcasts/run-fool.webp";
-import chameleon from "@/assets/podcasts/hollywood-con-queen.webp";
-import drDante from "@/assets/podcasts/dr-dante.webp";
-import catchKen from "@/assets/podcasts/catch-me-if-you-ken.webp";
-import nightShift from "@/assets/podcasts/night-shift.webp";
-import originStories from "@/assets/podcasts/origin-stories.webp";
-import anthraxThreat from "@/assets/podcasts/anthrax-threat.webp";
-import theBering from "@/assets/podcasts/the-bering.webp";
-import weCameToTheForest from "@/assets/podcasts/we-came-to-the-forest.webp";
-import wildBoysCover from "@/assets/podcasts/wild-boys.webp";
+import { works, type Work } from "@/data/works";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -35,90 +25,9 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-type Work = {
-  title: string;
-  cover: string;
-  studio: string;
-  role: string;
-  accolade: string;
-};
-
-const works: Work[] = [
-  {
-    title: "Wild Boys",
-    cover: wildBoysCover,
-    studio: "A Campside Media Original",
-    role: "Producer",
-    accolade: "Narrative Mystery",
-  },
-  {
-    title: "Run, Fool!",
-    cover: runFool,
-    studio: "Ballen Studios × Campside",
-    role: "Showrunner",
-    accolade: "Signal Award Winner · 10M+ Downloads",
-  },
-  {
-    title: "Origin Stories",
-    cover: originStories,
-    studio: "A Campside Media Original",
-    role: "Executive Producer",
-    accolade: "Weekly Interviews",
-  },
-  {
-    title: "Chameleon: Hollywood Con Queen",
-    cover: chameleon,
-    studio: "A Campside Media Original",
-    role: "Lead Producer",
-    accolade: "#2 Apple Podcasts",
-  },
-  {
-    title: "Catch Me If You Ken",
-    cover: catchKen,
-    studio: "A Campside Media Original",
-    role: "Senior Producer",
-    accolade: "#1 Apple Podcasts",
-  },
-  {
-    title: "Chameleon: Dr. Dante",
-    cover: drDante,
-    studio: "A Campside Media Original",
-    role: "Producer",
-    accolade: "Master of Deception",
-  },
-  {
-    title: "Witnessed: Night Shift",
-    cover: nightShift,
-    studio: "Sony Music · The Binge",
-    role: "Lead Producer",
-    accolade: "Investigative Documentary",
-  },
-  {
-    title: "We Came to the Forest",
-    cover: weCameToTheForest,
-    studio: "Wondery · Campside · Tenderfoot",
-    role: "Producer",
-    accolade: "Documentary Series",
-  },
-  {
-    title: "Cover Up: The Anthrax Threat",
-    cover: anthraxThreat,
-    studio: "Sony Music · The Binge",
-    role: "Producer",
-    accolade: "Investigative Series",
-  },
-  {
-    title: "The Bering",
-    cover: theBering,
-    studio: "Audible Original",
-    role: "Producer",
-    accolade: "with Sean Flynn",
-  },
-];
-
 const nav = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/" },
   { label: "Press", href: "#press" },
   { label: "Contact", href: "mailto:hello@abukaradan.com" },
 ];
@@ -128,6 +37,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
     align: "start",
     loop: true,
     skipSnaps: false,
+    containScroll: false,
   });
   const [prevEnabled, setPrevEnabled] = useState(false);
   const [nextEnabled, setNextEnabled] = useState(false);
@@ -154,14 +64,15 @@ function WorkCarousel({ works }: { works: Work[] }) {
     };
   }, [emblaApi, onSelect]);
 
+
   return (
     <div className="relative group/carousel mx-auto max-w-7xl md:max-w-none">
       <div className="overflow-hidden px-6 md:px-6 lg:px-10" ref={emblaRef}>
-        <div className="flex gap-3 md:gap-4">
-          {works.map((w, i) => (
+        <div className="flex">
+          {works.map((w) => (
             <div
               key={w.title}
-              className="flex-[0_0_60%] min-w-0 sm:flex-[0_0_32%] md:flex-[0_0_25%] lg:flex-[0_0_20%]"
+              className="flex-[0_0_60%] min-w-0 sm:flex-[0_0_32%] md:flex-[0_0_25%] lg:flex-[0_0_20%] pl-3 md:pl-4"
             >
               <div className="group cursor-pointer">
                 <div className="relative aspect-square overflow-hidden bg-neutral-900 rounded-sm">
@@ -172,17 +83,14 @@ function WorkCarousel({ works }: { works: Work[] }) {
                     className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
                   />
                 </div>
-                <div className="mt-3">
-                  <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/45">
+                <div className="mt-4 md:mt-6">
+                  <p className="text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.22em] text-muted">
                     {w.studio}
                   </p>
-                  <h3 className="mt-1.5 font-serif text-sm font-bold leading-snug tracking-tight text-[#E8DDD0] md:text-base">
+                  <h3 className="mt-1.5 font-serif text-[18px] font-bold leading-snug text-foreground md:text-[24px]">
                     {w.title}
                   </h3>
-                  <p className="mt-0.5 text-xs text-[#E8DDD0]/70">{w.role}</p>
-                  {w.title !== 'Wild Boys' && w.title !== 'Run, Fool!' && (
-                    <p className={`text-[11px] ${w.accolade.includes('Signal Award') ? 'text-[#C9A96A]' : 'text-[#E8DDD0]/45'}`}>{w.accolade}</p>
-                  )}
+                  <p className="mt-1.5 text-[10px] md:text-[12px] font-semibold text-muted">{w.role}</p>
                 </div>
               </div>
             </div>
@@ -192,12 +100,12 @@ function WorkCarousel({ works }: { works: Work[] }) {
 
 
       {/* Controls */}
-      <div className="mt-8 md:mt-12 flex items-center justify-start md:justify-between px-6 md:px-6 lg:px-10">
+      <div className="mt-8 md:mt-12 flex items-center justify-end md:justify-between px-6 md:px-6 lg:px-10">
         <a
-          href="#work"
-          className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/70 transition-colors hover:text-[#E8DDD0]"
+          href="/work"
+          className="inline-flex items-center gap-1 text-[12px] font-semibold uppercase tracking-[0.22em] text-foreground/70 transition-colors hover:text-foreground"
         >
-          See all
+          See all work
           <ChevronRight size={14} strokeWidth={2.5} />
         </a>
 
@@ -208,19 +116,19 @@ function WorkCarousel({ works }: { works: Work[] }) {
               onClick={() => emblaApi?.scrollTo(i)}
               className={`h-1.5 rounded-full transition-all ${
                 i === selectedIndex
-                  ? "w-6 bg-[#E8DDD0]"
-                  : "w-1.5 bg-[#E8DDD0]/30 hover:bg-[#E8DDD0]/50"
+                  ? "w-6 bg-foreground"
+                  : "w-1.5 bg-foreground/30 hover:bg-foreground/50"
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}
         </div>
 
-        <div className="hidden lg:flex gap-3">
+        <div className="hidden lg:flex gap-6">
           <button
             onClick={scrollPrev}
             disabled={!prevEnabled}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E8DDD0]/20 text-[#E8DDD0]/70 transition-all hover:border-[#E8DDD0]/40 hover:text-[#E8DDD0] disabled:opacity-30"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-muted/70 text-foreground/70 transition-colors hover:border-foreground hover:text-foreground disabled:opacity-30"
             aria-label="Previous slide"
           >
             ←
@@ -228,7 +136,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
           <button
             onClick={scrollNext}
             disabled={!nextEnabled}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E8DDD0]/20 text-[#E8DDD0]/70 transition-all hover:border-[#E8DDD0]/40 hover:text-[#E8DDD0] disabled:opacity-30"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-muted/70 text-foreground/70 transition-colors hover:border-foreground hover:text-foreground disabled:opacity-30"
             aria-label="Next slide"
           >
             →
@@ -241,11 +149,27 @@ function WorkCarousel({ works }: { works: Work[] }) {
 }
 
 function Index() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const sections = ["press"];
+    const observers = sections.map((id) => {
+      const el = document.getElementById(id);
+      if (!el) return null;
+      const observer = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        { threshold: 0, rootMargin: "-20% 0px -70% 0px" }
+      );
+      observer.observe(el);
+      return observer;
+    });
+    return () => observers.forEach((o) => o?.disconnect());
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-neutral-100 antialiased">
       {/* HERO */}
-      <section className="relative h-[100svh] w-full overflow-hidden min-[1600px]:h-[88svh] min-[1900px]:h-[82svh]">
+      <section className="relative min-h-[100svh] w-full flex flex-col min-[1600px]:min-h-[88svh] min-[1900px]:min-h-[82svh]">
         <img
           src={portrait}
           alt="Abukar Adan on location with field recording gear"
@@ -254,80 +178,58 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
-        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 pt-6 pb-2 md:px-12 md:py-8">
-          <nav className="ml-auto hidden gap-8 text-[11px] font-medium uppercase tracking-[0.22em] text-[#E8DDD0]/85 md:flex">
-            {nav.map((n) => (
-              <a
-                key={n.label}
-                href={n.href}
-                className="transition-colors hover:text-[#E8DDD0]"
-              >
-                {n.label}
-              </a>
-            ))}
-          </nav>
-          <button
-            type="button"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            onClick={() => setIsMenuOpen((v) => !v)}
-            className="ml-auto -mr-2 p-2 text-[#E8DDD0] md:hidden"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-          {isMenuOpen && (
-            <div className="absolute top-full right-6 z-50 mt-2 flex flex-col gap-4 rounded-md bg-black/95 px-6 py-5 text-[11px] font-medium uppercase tracking-[0.22em] text-[#E8DDD0]/85 md:hidden">
-              {nav.map((n) => (
+        <header className="relative z-10 flex w-full max-w-[1600px] mx-auto items-center justify-between px-6 pt-6 pb-2 md:px-12 md:py-8">
+          <nav className="mx-auto flex gap-5 text-[11px] font-medium uppercase tracking-[0.22em] text-foreground/85 md:ml-auto md:mr-0 md:gap-8 md:text-[12px]">
+            {nav.map((n) => {
+              const id = n.href.replace("#", "");
+              const isActive = n.href === "/" || activeSection === id;
+              return (
                 <a
                   key={n.label}
                   href={n.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="transition-colors hover:text-[#E8DDD0]"
+                  className={`transition-colors hover:text-foreground ${isActive ? "text-foreground underline underline-offset-4" : ""}`}
                 >
                   {n.label}
                 </a>
-              ))}
-            </div>
-          )}
+              );
+            })}
+          </nav>
         </header>
 
-
-        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-8 pb-16 md:px-12 md:pt-28 md:pb-40">
-          <h1 className="font-serif text-[18vw] leading-[0.88] tracking-tight text-[#E8DDD0] md:text-[9rem] lg:text-[11rem]">
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto  px-6 pt-8 pb-4 md:px-16 md:py-16">
+          <h1 className="font-serif text-[18vw] leading-[0.88] tracking-tight text-foreground md:text-[9rem] lg:text-[11rem]">
             ABUKAR
             <br />
             ADAN
           </h1>
-          <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-[#E8DDD0]/85">
+          <p className="mt-3 text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.32em] text-secondary-foreground md:pb-2 ">
             Producer. Reporter.{" "}
             <br className="md:hidden" />
             Editor. Showrunner.
           </p>
-          <p className="mt-4 max-w-md text-base leading-relaxed text-[#E8DDD0]/75 md:text-lg">
+          <p className="mt-4 max-w-md text-base leading-relaxed text-secondary-foreground md:text-lg">
             I develop and produce narrative, investigative, and experimental
             stories — from the first idea to the final cut.
           </p>
         </div>
-      </section>
 
-      {/* WORK CAROUSEL */}
-      <section
-        id="work"
-        className="relative z-20 -mt-80 w-full pb-8 md:-mt-56 md:pb-32"
-      >
-        <WorkCarousel works={works} />
+        {/* WORK CAROUSEL — 3xl gap below hero text */}
+        <div id="work" className="relative z-20 w-full mt-12 pb-8 md:pb-10">
+          <WorkCarousel works={works} />
+        </div>
       </section>
 
 
       {/* ABOUT */}
       <section
         id="about"
-        className="border-t border-[#E8DDD0]/10 bg-black px-6 py-6 md:px-12 md:py-32"
+        className="border-t border-border bg-black py-12 md:py-24"
       >
-        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-5 md:gap-12">
-          <h2 className="font-serif text-3xl tracking-tight md:col-span-2 md:text-5xl">
+        <div className="mx-auto grid max-w-[1600px] px-6 md:px-16 gap-8 md:grid-cols-5 md:gap-12">
+          <h2 className="font-serif text-foreground text-3xl tracking-tight md:col-span-2 md:text-5xl">
             About
           </h2>
-          <div className="space-y-4 text-base leading-relaxed text-[#E8DDD0]/75 md:col-span-3 md:space-y-6 md:text-lg">
+          <div className="space-y-4 text-base leading-relaxed text-secondary-foreground md:col-span-3 md:space-y-6 md:text-lg">
             <p>
               Abukar Adan is an audio producer, reporter, and editor whose work
               spans investigative journalism, narrative non-fiction, and
@@ -347,13 +249,13 @@ function Index() {
       {/* AWARD-WINNING */}
       <section
         id="award-winning"
-        className="border-t border-[#E8DDD0]/10 bg-black px-6 py-20 md:px-12 md:py-40"
+        className="border-t border-border py-12 md:py-24"
       >
-        <div className="mx-auto max-w-7xl">
-          <h2 className="mb-8 font-serif text-4xl tracking-tight text-[#E8DDD0] md:mb-12 md:text-6xl lg:text-7xl">
-            AWARD-WINNING
+        <div className="mx-auto max-w-[1600px] px-6 md:px-16">
+          <h2 className="mb-12 md:mb-20 font-serif text-3xl tracking-tight text-foreground md:text-5xl">
+            Award-Winning Work
           </h2>
-          <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:mt-16 md:gap-10">
+          <div className="mt-8 grid grid-cols-1 gap-16 sm:grid-cols-2 md:gap-20">
             {works.slice(0, 2).map((w) => (
               <div key={w.title} className="group cursor-pointer">
                 <div className="relative aspect-square overflow-hidden rounded-sm bg-neutral-900">
@@ -365,37 +267,48 @@ function Index() {
                   />
                 </div>
                 <div className="mt-4">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#E8DDD0]/50">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-foreground/50">
                     {w.studio}
                   </p>
-                  <h3 className="mt-3 font-serif text-2xl font-bold tracking-tight text-[#E8DDD0] md:text-3xl">
+                  <h3 className="mt-3 font-serif text-2xl font-bold tracking-tight text-foreground md:text-3xl">
                     {w.title}
                   </h3>
-                  <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E8DDD0]/70">
+                  <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/70">
                     {w.role}
-                  </p>
-                  <p className={`mt-1 text-[11px] uppercase tracking-[0.22em] ${w.accolade.includes('Signal Award') ? 'text-[#C9A96A]' : 'text-[#E8DDD0]/50'}`}>
-                    {w.accolade}
                   </p>
                   {w.title === 'Wild Boys' && (
                     <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-[#C9A96A]">
                       Ambie Winner — Podcast of the Year · #1 Apple Podcasts
                     </p>
                   )}
+                  {w.title === 'Run, Fool!' && (
+                    <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-[#C9A96A]">
+                      Signal Award Winner · 10M+ Downloads
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-12 md:mt-16 flex justify-end md:justify-start">
+            <a
+              href="/work"
+              className="inline-flex items-center gap-1 text-[12px] font-semibold uppercase tracking-[0.22em] text-foreground/70 transition-colors hover:text-foreground"
+            >
+              See all work
+              <ChevronRight size={14} strokeWidth={2.5} />
+            </a>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-[#E8DDD0]/10 px-6 py-6 md:px-12 md:py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 text-[11px] uppercase tracking-[0.24em] text-[#E8DDD0]/50 md:flex-row md:items-center">
+      <footer className="border-t border-border px-6 py-6 md:px-12 md:py-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 text-[11px] uppercase tracking-[0.24em] text-foreground/50 md:flex-row md:items-center">
           <span>© {new Date().getFullYear()} Abukar Adan</span>
           <a
             href="mailto:hello@abukaradan.com"
-            className="transition-colors hover:text-[#E8DDD0]"
+            className="transition-colors hover:text-foreground"
           >
             hello@abukaradan.com
           </a>
