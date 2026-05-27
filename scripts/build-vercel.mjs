@@ -28,20 +28,48 @@ copyDir(path.join(root, "dist/client"), staticDir);
 // Copy server bundle → function directory
 copyDir(path.join(root, "dist/server"), funcDir);
 
-// Edge function entry: wraps the fetch handler
+// Node.js serverless function: bridges Node req/res → fetch handler
 fs.writeFileSync(
   path.join(funcDir, "index.js"),
   `import server from "./server.js";
-export default function handler(request) {
-  return server.fetch(request, {}, {});
+
+export default async function handler(req, res) {
+  const proto = req.headers["x-forwarded-proto"] || "https";
+  const host = req.headers["x-forwarded-host"] || req.headers["host"];
+  const url = \`\${proto}://\${host}\${req.url}\`;
+
+  const chunks = [];
+  for await (const chunk of req) chunks.push(chunk);
+  const body = chunks.length > 0 ? Buffer.concat(chunks) : null;
+
+  const webRequest = new Request(url, {
+    method: req.method,
+    headers: Object.fromEntries(
+      Object.entries(req.headers).filter(([, v]) => v !== undefined)
+    ),
+    body: req.method !== "GET" && req.method !== "HEAD" ? body : undefined,
+  });
+
+  const response = await server.fetch(webRequest, {}, {});
+
+  res.statusCode = response.status;
+  for (const [key, value] of response.headers.entries()) {
+    res.setHeader(key, value);
+  }
+
+  res.end(Buffer.from(await response.arrayBuffer()));
 }
 `
 );
 
-// Vercel edge function config
+// Node.js serverless function config
 fs.writeFileSync(
   path.join(funcDir, ".vc-config.json"),
-  JSON.stringify({ runtime: "edge", entrypoint: "index.js" })
+  JSON.stringify({
+    runtime: "nodejs22.x",
+    handler: "index.js",
+    launcherType: "Nodejs",
+  })
 );
 
 // Vercel output routing config
