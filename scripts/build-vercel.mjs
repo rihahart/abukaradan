@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { build } from "esbuild";
 
 const root = process.cwd();
 
@@ -25,13 +26,11 @@ fs.mkdirSync(funcDir, { recursive: true });
 // Copy client assets → static
 copyDir(path.join(root, "dist/client"), staticDir);
 
-// Copy server bundle → function directory
-copyDir(path.join(root, "dist/server"), funcDir);
-
-// Node.js serverless function: bridges Node req/res → fetch handler
+// Write the handler entry that wraps the fetch server
+const entryFile = path.join(root, ".vercel/_entry.mjs");
 fs.writeFileSync(
-  path.join(funcDir, "index.js"),
-  `import server from "./server.js";
+  entryFile,
+  `import server from "${path.join(root, "dist/server/server.js").replace(/\\/g, "/")}";
 
 export default async function handler(req, res) {
   const proto = req.headers["x-forwarded-proto"] || "https";
@@ -56,11 +55,25 @@ export default async function handler(req, res) {
   for (const [key, value] of response.headers.entries()) {
     res.setHeader(key, value);
   }
-
   res.end(Buffer.from(await response.arrayBuffer()));
 }
 `
 );
+
+// Bundle everything (server + all node_modules deps) into a single file
+await build({
+  entryPoints: [entryFile],
+  outfile: path.join(funcDir, "index.js"),
+  bundle: true,
+  platform: "node",
+  target: "node22",
+  format: "esm",
+  minify: false,
+  logLevel: "info",
+});
+
+// Clean up temp entry file
+fs.rmSync(entryFile);
 
 // Node.js serverless function config
 fs.writeFileSync(
