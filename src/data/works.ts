@@ -22,60 +22,60 @@ export const works: Work[] = [
   {
     title: "Wild Boys",
     cover: wildBoysCover,
-    studio: "A Campside Media Original",
+    studio: "Sony Music · Campside Media",
     role: "Producer",
     award: "Ambie Winner — Podcast of the Year · #1 Apple Podcasts",
     description:
-      "A coming-of-age story about four friends from a small Midwestern town whose lives are forever changed by a single violent night. Reported and produced over two years across multiple states.",
+      "Two young men arrive in a Canadian town claiming they were raised in the wilderness. Nearly twenty years later, journalists Sam Mullins and Abukar Adan set out to uncover the truth.",
   },
   {
     title: "Run, Fool!",
     cover: runFool,
-    studio: "Ballen Studios × Campside",
-    role: "Showrunner",
-    award: "Signal Award Winner · 10M+ Downloads",
+    studio: "Campside Media · Ballen Studios · At Will Media",
+    role: "Managing Producer · Editor ",
+    award: "Signal Award Winner · 11M+ Downloads",
     description:
-      "A comedy anthology series about people who made the wrong call at exactly the wrong moment — and lived to tell the tale.",
+      "A weekly horror anthology from Rodney Barnes, featuring original stories inspired by folklore, the supernatural, and the unknown.",
   },
   {
     title: "Origin Stories",
     cover: originStories,
     studio: "A Campside Media Original",
-    role: "Executive Producer",
+    role: "Showrunner",
     description:
-      "A series exploring how the world's most recognizable brands, movements, and myths were actually born — and how the real story is almost always stranger than the legend.",
+      "A weekly show where acclaimed journalists, filmmakers, authors, and creators unpack the projects that defined their careers.",
   },
   {
-    title: "Chameleon: Hollywood Con Queen",
+    title: "Hollywood Con Queen",
     cover: chameleon,
     studio: "A Campside Media Original",
-    role: "Lead Producer",
+    role: "Associate Producer",
     description:
-      "The story of a mysterious con artist who spent years impersonating powerful Hollywood executives and defrauding aspiring filmmakers across the globe.",
+      "Hundreds of aspiring filmmakers are lured to Indonesia by a powerful Hollywood executive who doesn't exist.",
   },
   {
     title: "Catch Me If You Ken",
     cover: catchKen,
-    studio: "A Campside Media Original",
+    studio: "Sony Music · Campside Media",
     role: "Senior Producer",
     description:
-      "A true-crime series following one of the most audacious financial frauds in recent memory — and the investigators who spent years trying to bring the perpetrator to justice.",
+      "A globe-spanning investigation into an alleged con artist who left behind a trail of scams, aliases, and unanswered questions.",
   },
   {
-    title: "Chameleon: Dr. Dante",
+    title: "Dr. Dante",
     cover: drDante,
-    studio: "A Campside Media Original",
+    studio: "Sony Music · Campside Media",
     role: "Producer",
     description:
-      "The second season of the Chameleon franchise, tracing the incredible double life of a man who convinced an entire community he was a doctor for over a decade.",
+      "The story of a hypnotist-turned-con man who spent decades reinventing himself while leaving a trail of fraud and deception.",
   },
   {
     title: "Witnessed: Night Shift",
     cover: nightShift,
-    studio: "Sony Music · The Binge",
-    role: "Lead Producer",
+    studio: "Sony Music · Campside Media",
+    role: "Fact-Checker",
     description:
-      "A documentary series placing ordinary people inside extraordinary moments — told entirely through firsthand accounts and immersive soundscapes.",
+      "Veterans begin dying under suspicious circumstances at a Missouri VA hospital. Families search for answers as questions mount around a nurse, hospital leadership, and the FBI.",
   },
   {
     title: "We Came to the Forest",
@@ -83,22 +83,22 @@ export const works: Work[] = [
     studio: "Wondery · Campside · Tenderfoot",
     role: "Producer",
     description:
-      "An environmental mystery and survival story set deep in the Pacific Northwest, uncovering what happens when idealism collides with the unforgiving wild.",
+      "A young activist finds purpose, love, and community in a Georgia forest, until one morning changes everything.",
   },
   {
     title: "Cover Up: The Anthrax Threat",
     cover: anthraxThreat,
-    studio: "Sony Music · The Binge",
+    studio: "Sony Music · Campside Media",
     role: "Producer",
     description:
-      "An investigative series re-examining the 2001 anthrax letter attacks — the deadliest biological assault in US history — and the troubled FBI investigation that followed.",
+      "After anthrax-laced letters kill five people in the weeks following 9/11, one of the largest investigations in FBI history spirals into uncertainty.",
   },
   {
     title: "The Bering",
     cover: theBering,
     studio: "Audible Original",
-    role: "Producer",
+    role: "Associate Producer",
     description:
-      "An immersive audio drama set aboard a research vessel in the Bering Sea, blurring the line between documentary and fiction to explore isolation, memory, and survival.",
+      "When an Alaskan fishing vessel sinks in freezing waters, 47 crew members find themselves at the center of a daring rescue mission.",
   },
 ];

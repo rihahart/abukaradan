@@ -66,7 +66,7 @@ function WorkPage() {
           Abukar Adan
         </h1>
         <p className="mt-4 text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.28em] text-muted md:max-w-3xl">
-         He builds stories from the ground up — reporting, scripting, interviewing, editing, and shaping the sound of the final cut. 
+         I collaborate with creators and studios alike to develop stories from the first spark to the final mix.
         </p>
       </div>
 

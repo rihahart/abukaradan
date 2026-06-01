@@ -208,8 +208,8 @@ function Index() {
             Editor. Showrunner.
           </p>
           <p className="mt-4 max-w-md text-base leading-relaxed text-secondary-foreground md:text-lg">
-            I develop and produce narrative, investigative, and experimental
-            stories — from the first idea to the final cut.
+            I collaborate with creators and studios alike to develop stories
+            from the first spark to the final mix.
           </p>
         </div>
 
@@ -231,16 +231,28 @@ function Index() {
           </h2>
           <div className="space-y-4 text-base leading-relaxed text-secondary-foreground md:col-span-3 md:space-y-6 md:text-lg">
             <p>
-              Abukar Adan is an audio producer, reporter, and editor whose work
-              spans investigative journalism, narrative non-fiction, and
-              experimental documentary. He has produced chart-topping series for
-              Campside Media, Sony Music, Audible, and Ballen Studios.
+              I'm a producer, reporter, and editor based in Queens, New York.
+              Over the past decade, I've worked across investigative journalism,
+              narrative nonfiction, horror, and experimental audio storytelling.
+              I'm currently producing projects for iHeartMedia, Sony Music, and
+              Campside Media.
             </p>
             <p>
-              His shows have won the Ambie and Signal Awards, reached #1 on
-              Apple Podcasts, and been downloaded tens of millions of times. He
-              builds stories from the ground up — reporting, scripting,
-              interviewing, editing, and shaping the sound of the final cut.
+              After nearly seven years helping shape Campside's slate of
+              narrative podcasts, I struck out on my own and now develop
+              projects directly with creators, studios, and production partners.
+              My work includes <em>Wild Boys</em>, winner of the Ambie for
+              Podcast of the Year; the Signal Award-winning horror anthology{" "}
+              <em>Run, Fool!</em>; and <em>The Last Days of Cabrini-Green</em>,
+              a hybrid fiction-nonfiction Audible Original. Collectively, my
+              shows have reached tens of millions of listeners and been featured
+              in best-of lists by The Atlantic, Rolling Stone, and New York
+              Magazine.
+            </p>
+            <p>
+              Before podcasting, I was a public radio reporter at WJCT News in
+              Florida and Maine Public. I occasionally teach and speak about
+              audio journalism, reporting, and narrative storytelling.
             </p>
           </div>
         </div>
@@ -278,12 +290,12 @@ function Index() {
                   </p>
                   {w.title === 'Wild Boys' && (
                     <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-[#C9A96A]">
-                      Ambie Winner — Podcast of the Year · #1 Apple Podcasts
+                      Ambie Winner — Podcast of the Year
                     </p>
                   )}
                   {w.title === 'Run, Fool!' && (
                     <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-[#C9A96A]">
-                      Signal Award Winner · 10M+ Downloads
+                      Signal Award Winner · 11M+ Downloads
                     </p>
                   )}
                 </div>
