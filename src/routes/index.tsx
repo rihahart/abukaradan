@@ -29,7 +29,7 @@ const nav = [
   { label: "Work", href: "/work" },
   { label: "About", href: "/" },
   { label: "Press", href: "#press" },
-  { label: "Contact", href: "mailto:hello@abukaradan.com" },
+  { label: "Contact", href: "mailto:abukar.adan@gmail.com" },
 ];
 
 function WorkCarousel({ works }: { works: Work[] }) {
@@ -319,10 +319,10 @@ function Index() {
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 text-[11px] uppercase tracking-[0.24em] text-foreground/50 md:flex-row md:items-center">
           <span>© {new Date().getFullYear()} Abukar Adan</span>
           <a
-            href="mailto:hello@abukaradan.com"
+            href="mailto:abukar.adan@gmail.com"
             className="transition-colors hover:text-foreground"
           >
-            hello@abukaradan.com
+            abukar.adan@gmail.com
           </a>
         </div>
       </footer>
