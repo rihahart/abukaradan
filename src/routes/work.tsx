@@ -51,7 +51,7 @@ function TrailerPlayer({ src }: { src: string }) {
     return Array.from({ length: BAR_COUNT }, (_, i) => {
       const x = i / BAR_COUNT;
       // Multi-cycle sine creates repeating peaks like a real waveform
-      const wave = Math.abs(Math.sin(x * Math.PI * 10));
+      const wave = Math.abs(Math.sin(x * Math.PI * 16));
       const noise = rand() * 0.18;
       return Math.max(8, Math.min(75, Math.round((wave * 0.70 + noise) * 100)));
     });
