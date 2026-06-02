@@ -9,6 +9,8 @@ import theBering from "@/assets/podcasts/the-bering.webp";
 import weCameToTheForest from "@/assets/podcasts/we-came-to-the-forest.webp";
 import wildBoysCover from "@/assets/podcasts/wild-boys.webp";
 import cabriniGreen from "@/assets/podcasts/THE+LAST+DAYS+OF+CABRINI-GREEN_FINAL[2].webp";
+import wjctNews from "@/assets/publicRadio/WJCT_website.png";
+import mainePublic from "@/assets/publicRadio/Maine Public_web.jpeg";
 
 import wildBoysTrailer from "@/assets/Trailers/Wild Boys-Introducing_ Wild Boys.mp3";
 import runFoolTrailer from "@/assets/Trailers/Run Fool_Trailer_FINAL MIX.wav";
@@ -145,5 +147,21 @@ export const works: Work[] = [
     description:
       "When an Alaskan fishing vessel sinks in freezing waters, 47 crew members find themselves at the center of a daring rescue mission.",
     appleLink: "https://www.audible.com/podcast/The-Bering/B09KDRYRM4",
+  },
+  {
+    title: "WJCT News",
+    cover: wjctNews,
+    studio: "WJCT News",
+    role: "Politics & Education Reporter",
+    description:
+      "Covered city government, education, and politics across Northeast Florida.",
+  },
+  {
+    title: "Maine Public Radio",
+    cover: mainePublic,
+    studio: "Maine Public Radio",
+    role: "General Assignment Reporter",
+    description:
+      "Reported from communities across Maine, from the state's largest cities to its most remote towns.",
   },
 ];
