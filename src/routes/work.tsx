@@ -53,7 +53,7 @@ function TrailerPlayer({ src }: { src: string }) {
       // Multi-cycle sine creates repeating peaks like a real waveform
       const wave = Math.abs(Math.sin(x * Math.PI * 10));
       const noise = rand() * 0.18;
-      return Math.max(8, Math.round((wave * 0.82 + noise + 0.05) * 100));
+      return Math.max(8, Math.min(75, Math.round((wave * 0.70 + noise) * 100)));
     });
   }, [src]);
 
@@ -134,7 +134,7 @@ function TrailerPlayer({ src }: { src: string }) {
         </button>
 
         <div
-          className="flex w-[180px] cursor-pointer items-center gap-px h-10"
+          className="flex w-[180px] cursor-pointer items-center gap-px h-6"
           onClick={seek}
           role="slider"
           aria-valuemin={0}
