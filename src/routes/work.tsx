@@ -134,7 +134,7 @@ function TrailerPlayer({ src }: { src: string }) {
         </button>
 
         <div
-          className="flex flex-1 cursor-pointer items-center gap-px h-10"
+          className="flex w-[180px] cursor-pointer items-center gap-px h-10"
           onClick={seek}
           role="slider"
           aria-valuemin={0}
