@@ -187,13 +187,13 @@ function TrailerPlayer({ src }: { src: string }) {
         {/* Play / Pause */}
         <button
           onClick={togglePlay}
-          className={`relative flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform hover:scale-105 active:scale-95 ${isPlaying ? "shadow-[0_0_18px_rgba(255,255,255,0.18)]" : ""}`}
+          className="flex flex-shrink-0 items-center justify-center text-foreground/70 transition-colors hover:text-foreground"
           aria-label={isPlaying ? "Pause" : "Play"}
         >
           {isPlaying ? (
-            <Pause size={14} fill="currentColor" strokeWidth={0} />
+            <Pause size={18} fill="currentColor" strokeWidth={0} />
           ) : (
-            <Play size={14} fill="currentColor" strokeWidth={0} className="translate-x-px" />
+            <Play size={18} fill="currentColor" strokeWidth={0} className="translate-x-px" />
           )}
         </button>
 
