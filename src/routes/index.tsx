@@ -196,23 +196,21 @@ function Index() {
           </nav>
         </header>
 
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 pt-8 pb-4 md:px-16 md:py-16">
-          <div className="w-fit md:w-auto">
-            <h1 className="font-serif text-[18vw] leading-[0.88] tracking-tight text-foreground md:text-[9rem] lg:text-[11rem]">
-              ABUKAR
-              <br />
-              ADAN
-            </h1>
-            <p className="mt-3 text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.32em] text-secondary-foreground md:pb-2">
-              Producer. Reporter.{" "}
-              <br className="md:hidden" />
-              Editor. Showrunner.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-secondary-foreground md:max-w-md md:text-lg">
-              I collaborate with creators and studios alike to develop stories
-              from the first spark to the final mix.
-            </p>
-          </div>
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto  px-6 pt-8 pb-4 md:px-16 md:py-16">
+          <h1 className="font-serif text-[18vw] leading-[0.88] tracking-tight text-foreground md:text-[9rem] lg:text-[11rem]">
+            ABUKAR
+            <br />
+            ADAN
+          </h1>
+          <p className="mt-3 text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.32em] text-secondary-foreground md:pb-2 ">
+            Producer. Reporter.{" "}
+            <br className="md:hidden" />
+            Editor. Showrunner.
+          </p>
+          <p className="mt-4 max-w-md text-base leading-relaxed text-secondary-foreground md:text-lg">
+            I collaborate with creators and studios alike to develop stories
+            from the first spark to the final mix.
+          </p>
         </div>
 
         {/* WORK CAROUSEL — 3xl gap below hero text */}
