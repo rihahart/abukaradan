@@ -172,7 +172,7 @@ function TrailerPlayer({ src }: { src: string }) {
   const bars = liveBars ?? staticBars;
 
   return (
-    <div className="mt-8 max-w-lg">
+    <div className="mt-14 max-w-lg">
       {/* Label */}
       <div className="flex items-center gap-3 mb-4">
         <div className="h-px flex-1 bg-white/10" />
