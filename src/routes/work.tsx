@@ -117,7 +117,7 @@ function TrailerPlayer({ src }: { src: string }) {
       <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted">
         Listen to Trailer
       </p>
-      <div className="flex items-center gap-3 rounded-sm border border-white/10 bg-white/5 px-4 py-3">
+      <div className="flex items-center gap-3 rounded-sm border border-white/10 bg-black px-4 py-3">
         <button
           onClick={togglePlay}
           className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-foreground text-background transition-opacity hover:opacity-80"
