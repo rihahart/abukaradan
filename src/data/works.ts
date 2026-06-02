@@ -31,6 +31,7 @@ export type Work = {
   description?: string;
   trailer?: string;
   appleLink?: string;
+  linkLabel?: string;
 };
 
 export function toSlug(title: string): string {
@@ -155,6 +156,8 @@ export const works: Work[] = [
     role: "Politics & Education Reporter",
     description:
       "Covered city government, education, and politics across Northeast Florida.",
+    appleLink: "https://news.wjct.org/people/abukar-adan",
+    linkLabel: "See my work here",
   },
   {
     title: "Maine Public Radio",

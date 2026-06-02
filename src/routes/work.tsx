@@ -33,7 +33,7 @@ const fuse = new Fuse(works, {
 
 const BAR_COUNT = 60;
 
-function TrailerPlayer({ src, appleLink }: { src: string; appleLink?: string }) {
+function TrailerPlayer({ src, appleLink, linkLabel }: { src: string; appleLink?: string; linkLabel?: string }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const audioCtxRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
@@ -240,7 +240,7 @@ function TrailerPlayer({ src, appleLink }: { src: string; appleLink?: string }) 
           rel="noopener noreferrer"
           className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-foreground/50 transition-colors hover:text-foreground"
         >
-          {appleLink.includes("audible.com") ? "Open in Audible" : "Open in Apple Podcasts"}
+          {linkLabel ?? (appleLink.includes("audible.com") ? "Open in Audible" : "Open in Apple Podcasts")}
           <ArrowUpRight size={13} strokeWidth={2} />
         </a>
       )}
@@ -353,7 +353,7 @@ function WorkPage() {
                   {w.description}
                 </p>
               )}
-              {w.trailer && <TrailerPlayer src={w.trailer} appleLink={w.appleLink} />}
+              {w.trailer && <TrailerPlayer src={w.trailer} appleLink={w.appleLink} linkLabel={w.linkLabel} />}
               {!w.trailer && w.appleLink && (
                 <a
                   href={w.appleLink}
@@ -361,7 +361,7 @@ function WorkPage() {
                   rel="noopener noreferrer"
                   className="mt-8 inline-flex items-center gap-1.5 text-[11px] font-medium text-foreground/50 transition-colors hover:text-foreground"
                 >
-                  {w.appleLink.includes("audible.com") ? "Open in Audible" : "Open in Apple Podcasts"}
+                  {w.linkLabel ?? (w.appleLink.includes("audible.com") ? "Open in Audible" : "Open in Apple Podcasts")}
                   <ArrowUpRight size={13} strokeWidth={2} />
                 </a>
               )}
