@@ -325,7 +325,7 @@ function Index() {
               className="transition-colors hover:text-foreground"
               aria-label="LinkedIn"
             >
-              <LinkedinIcon size={16} strokeWidth={1.75} />
+              <LinkedinIcon size={19} strokeWidth={1.75} />
             </a>
             <a
               href="https://www.instagram.com/byabukar"
@@ -334,7 +334,7 @@ function Index() {
               className="transition-colors hover:text-foreground"
               aria-label="Instagram"
             >
-              <InstagramIcon size={16} strokeWidth={1.75} />
+              <InstagramIcon size={19} strokeWidth={1.75} />
             </a>
           </div>
           <a
