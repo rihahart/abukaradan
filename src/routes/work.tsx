@@ -183,7 +183,7 @@ function TrailerPlayer({ src }: { src: string }) {
       </div>
 
       {/* Player */}
-      <div className="flex items-center gap-4 rounded-lg border border-white/[0.08] bg-white/[0.03] px-5 py-4">
+      <div className="flex items-center gap-4 rounded-lg border border-white/[0.08] bg-transparent px-5 py-4">
         {/* Play / Pause */}
         <button
           onClick={togglePlay}
@@ -215,10 +215,10 @@ function TrailerPlayer({ src }: { src: string }) {
                   style={{
                     height: `${barH}%`,
                     background: played
-                      ? "#ffffff"
+                      ? "rgba(255,255,255,0.5)"
                       : isPlaying
-                        ? "rgba(255,255,255,0.4)"
-                        : "rgba(255,255,255,0.18)",
+                        ? "rgba(255,255,255,0.2)"
+                        : "rgba(255,255,255,0.12)",
                     transition: "height 70ms ease-out, background 200ms ease",
                   }}
                 />
