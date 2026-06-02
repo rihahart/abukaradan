@@ -31,7 +31,7 @@ const fuse = new Fuse(works, {
   includeScore: true,
 });
 
-const BAR_COUNT = 80;
+const BAR_COUNT = 60;
 
 function TrailerPlayer({ src }: { src: string }) {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -172,48 +172,63 @@ function TrailerPlayer({ src }: { src: string }) {
   const bars = liveBars ?? staticBars;
 
   return (
-    <div className="mt-8">
-      <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted">
-        Listen to Trailer
-      </p>
-      <div className="flex items-center gap-3 rounded-sm border border-white/10 bg-black px-4 py-3">
+    <div className="mt-8 max-w-lg">
+      {/* Label */}
+      <div className="flex items-center gap-3 mb-4">
+        <div className="h-px flex-1 bg-white/10" />
+        <p className="text-[9px] font-semibold uppercase tracking-[0.3em] text-white/35">
+          Listen to Trailer
+        </p>
+        <div className="h-px flex-1 bg-white/10" />
+      </div>
+
+      {/* Player */}
+      <div className="flex items-center gap-4 rounded-lg border border-white/[0.08] bg-white/[0.03] px-5 py-4">
+        {/* Play / Pause */}
         <button
           onClick={togglePlay}
-          className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-foreground text-background transition-opacity hover:opacity-80"
+          className={`relative flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform hover:scale-105 active:scale-95 ${isPlaying ? "shadow-[0_0_18px_rgba(255,255,255,0.18)]" : ""}`}
           aria-label={isPlaying ? "Pause" : "Play"}
         >
           {isPlaying ? (
-            <Pause size={13} fill="currentColor" strokeWidth={0} />
+            <Pause size={14} fill="currentColor" strokeWidth={0} />
           ) : (
-            <Play size={13} fill="currentColor" strokeWidth={0} className="translate-x-px" />
+            <Play size={14} fill="currentColor" strokeWidth={0} className="translate-x-px" />
           )}
         </button>
 
+        {/* Waveform */}
         <div
-          className="flex flex-1 cursor-pointer items-center gap-px h-6"
+          className="flex flex-1 cursor-pointer items-center gap-[2px] h-10"
           onClick={seek}
           role="slider"
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={Math.round(progress * 100)}
         >
-          {bars.map((barH, i) => (
-            <div key={i} className="flex-1 h-full flex items-center">
-              <div
-                className="w-full rounded-full"
-                style={{
-                  height: `${barH}%`,
-                  background:
-                    i / BAR_COUNT < progress
-                      ? "rgb(255 255 255)"
-                      : "rgba(255 255 255 / 0.55)",
-                }}
-              />
-            </div>
-          ))}
+          {bars.map((barH, i) => {
+            const played = i / BAR_COUNT < progress;
+            return (
+              <div key={i} className="flex-1 h-full flex items-center">
+                <div
+                  className="w-full rounded-full"
+                  style={{
+                    height: `${barH}%`,
+                    background: played
+                      ? "#ffffff"
+                      : isPlaying
+                        ? "rgba(255,255,255,0.4)"
+                        : "rgba(255,255,255,0.18)",
+                    transition: "height 70ms ease-out, background 200ms ease",
+                  }}
+                />
+              </div>
+            );
+          })}
         </div>
 
-        <span className="flex-shrink-0 tabular-nums text-[11px] text-muted">
+        {/* Time */}
+        <span className="w-9 flex-shrink-0 text-right tabular-nums text-[11px] text-white/40">
           {displayTime}
         </span>
       </div>
