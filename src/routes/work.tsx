@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import { Search, LinkedinIcon, InstagramIcon } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Search, LinkedinIcon, InstagramIcon, Play, Pause } from "lucide-react";
 import Fuse from "fuse.js";
 import { works, toSlug } from "@/data/works";
 
@@ -30,6 +30,137 @@ const fuse = new Fuse(works, {
   distance: 100,
   includeScore: true,
 });
+
+const BAR_COUNT = 65;
+
+function TrailerPlayer({ src }: { src: string }) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+
+  const bars = useMemo(() => {
+    let h = 0;
+    for (let i = 0; i < src.length; i++) h = ((h << 5) - h + src.charCodeAt(i)) | 0;
+    const rand = () => {
+      h = Math.imul(h ^ (h >>> 16), 0x45d9f3b);
+      h = Math.imul(h ^ (h >>> 16), 0x45d9f3b);
+      return (h >>> 0) / 0xffffffff;
+    };
+    return Array.from({ length: BAR_COUNT }, (_, i) => {
+      const envelope = 0.3 + 0.7 * Math.sin((i / BAR_COUNT) * Math.PI);
+      return Math.max(8, Math.round((0.15 + rand() * 0.85) * envelope * 100));
+    });
+  }, [src]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const onPlay = () => setIsPlaying(true);
+    const onPause = () => setIsPlaying(false);
+    const onEnded = () => { setIsPlaying(false); setProgress(0); setCurrentTime(0); };
+    const onTime = () => {
+      const d = audio.duration || 1;
+      setCurrentTime(audio.currentTime);
+      setProgress(audio.currentTime / d);
+    };
+    const onMeta = () => setDuration(audio.duration);
+    audio.addEventListener("play", onPlay);
+    audio.addEventListener("pause", onPause);
+    audio.addEventListener("ended", onEnded);
+    audio.addEventListener("timeupdate", onTime);
+    audio.addEventListener("loadedmetadata", onMeta);
+    return () => {
+      audio.removeEventListener("play", onPlay);
+      audio.removeEventListener("pause", onPause);
+      audio.removeEventListener("ended", onEnded);
+      audio.removeEventListener("timeupdate", onTime);
+      audio.removeEventListener("loadedmetadata", onMeta);
+    };
+  }, []);
+
+  const togglePlay = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (!audio.paused) {
+      audio.pause();
+    } else {
+      document.querySelectorAll<HTMLAudioElement>("audio").forEach((a) => {
+        if (a !== audio) a.pause();
+      });
+      audio.play();
+    }
+  }, []);
+
+  const seek = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const audio = audioRef.current;
+      if (!audio || !duration) return;
+      const rect = e.currentTarget.getBoundingClientRect();
+      const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      audio.currentTime = ratio * duration;
+    },
+    [duration]
+  );
+
+  const fmt = (s: number) =>
+    `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+
+  const displayTime =
+    duration > 0
+      ? fmt(isPlaying || currentTime > 0 ? currentTime : duration)
+      : "—";
+
+  return (
+    <div className="mt-8">
+      <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted">
+        Listen to Trailer
+      </p>
+      <div className="flex items-center gap-3 rounded-sm border border-white/10 bg-white/5 px-4 py-3">
+        <button
+          onClick={togglePlay}
+          className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-foreground text-background transition-opacity hover:opacity-80"
+          aria-label={isPlaying ? "Pause" : "Play"}
+        >
+          {isPlaying ? (
+            <Pause size={13} fill="currentColor" strokeWidth={0} />
+          ) : (
+            <Play size={13} fill="currentColor" strokeWidth={0} className="translate-x-px" />
+          )}
+        </button>
+
+        <div
+          className="flex flex-1 cursor-pointer items-end gap-[2px] h-9"
+          onClick={seek}
+          role="slider"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={Math.round(progress * 100)}
+        >
+          {bars.map((barH, i) => (
+            <div
+              key={i}
+              className="flex-1 rounded-full"
+              style={{
+                height: `${barH}%`,
+                background:
+                  i / BAR_COUNT < progress
+                    ? "rgb(255 255 255)"
+                    : "rgba(255 255 255 / 0.2)",
+              }}
+            />
+          ))}
+        </div>
+
+        <span className="flex-shrink-0 tabular-nums text-[11px] text-muted">
+          {displayTime}
+        </span>
+      </div>
+      <audio ref={audioRef} src={src} preload="metadata" />
+    </div>
+  );
+}
 
 function WorkPage() {
   const [query, setQuery] = useState("");
@@ -136,6 +267,7 @@ function WorkPage() {
                   {w.description}
                 </p>
               )}
+              {w.trailer && <TrailerPlayer src={w.trailer} />}
             </div>
           </article>
         ))}

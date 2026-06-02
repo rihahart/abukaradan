@@ -9,6 +9,16 @@ import theBering from "@/assets/podcasts/the-bering.webp";
 import weCameToTheForest from "@/assets/podcasts/we-came-to-the-forest.webp";
 import wildBoysCover from "@/assets/podcasts/wild-boys.webp";
 
+import wildBoysTrailer from "@/assets/Trailers/Wild Boys-Introducing_ Wild Boys.mp3";
+import runFoolTrailer from "@/assets/Trailers/Run Fool_Trailer_FINAL MIX.wav";
+import originStoriesTrailer from "@/assets/Trailers/Origin Stories_Trailer.mp3";
+import hollywoodConQueenTrailer from "@/assets/Trailers/Hollywood Con Queen_Trailer.mp3";
+import catchKenTrailer from "@/assets/Trailers/Catch Me If You Ken_Trailer.mp3";
+import drDanteTrailer from "@/assets/Trailers/Dr. Dante_Trailer.mp3";
+import nightShiftTrailer from "@/assets/Trailers/Night Shift_Trailer.mp3";
+import weCameTrailer from "@/assets/Trailers/We Came to the Forest_Trailer.mp3";
+import anthraxTrailer from "@/assets/Trailers/Anthrax Threat.mp3";
+
 export type Work = {
   title: string;
   cover: string;
@@ -16,6 +26,7 @@ export type Work = {
   role: string;
   award?: string;
   description?: string;
+  trailer?: string;
 };
 
 export function toSlug(title: string): string {
@@ -31,6 +42,7 @@ export const works: Work[] = [
     award: "Ambie Winner — Podcast of the Year · #1 Apple Podcasts",
     description:
       "Two young men arrive in a Canadian town claiming they were raised in the wilderness. Nearly twenty years later, journalists Sam Mullins and Abukar Adan set out to uncover the truth.",
+    trailer: wildBoysTrailer,
   },
   {
     title: "Run, Fool!",
@@ -40,6 +52,7 @@ export const works: Work[] = [
     award: "Signal Award Winner · 11M+ Downloads",
     description:
       "A weekly horror anthology from Rodney Barnes, featuring original stories inspired by folklore, the supernatural, and the unknown.",
+    trailer: runFoolTrailer,
   },
   {
     title: "Origin Stories",
@@ -48,6 +61,7 @@ export const works: Work[] = [
     role: "Showrunner",
     description:
       "A weekly show where acclaimed journalists, filmmakers, authors, and creators unpack the projects that defined their careers.",
+    trailer: originStoriesTrailer,
   },
   {
     title: "Hollywood Con Queen",
@@ -56,6 +70,7 @@ export const works: Work[] = [
     role: "Associate Producer",
     description:
       "Hundreds of aspiring filmmakers are lured to Indonesia by a powerful Hollywood executive who doesn't exist.",
+    trailer: hollywoodConQueenTrailer,
   },
   {
     title: "Catch Me If You Ken",
@@ -64,6 +79,7 @@ export const works: Work[] = [
     role: "Senior Producer",
     description:
       "A globe-spanning investigation into an alleged con artist who left behind a trail of scams, aliases, and unanswered questions.",
+    trailer: catchKenTrailer,
   },
   {
     title: "Dr. Dante",
@@ -72,6 +88,7 @@ export const works: Work[] = [
     role: "Producer",
     description:
       "The story of a hypnotist-turned-con man who spent decades reinventing himself while leaving a trail of fraud and deception.",
+    trailer: drDanteTrailer,
   },
   {
     title: "Witnessed: Night Shift",
@@ -80,6 +97,7 @@ export const works: Work[] = [
     role: "Fact-Checker",
     description:
       "Veterans begin dying under suspicious circumstances at a Missouri VA hospital. Families search for answers as questions mount around a nurse, hospital leadership, and the FBI.",
+    trailer: nightShiftTrailer,
   },
   {
     title: "We Came to the Forest",
@@ -88,6 +106,7 @@ export const works: Work[] = [
     role: "Producer",
     description:
       "A young activist finds purpose, love, and community in a Georgia forest, until one morning changes everything.",
+    trailer: weCameTrailer,
   },
   {
     title: "Cover Up: The Anthrax Threat",
@@ -96,6 +115,7 @@ export const works: Work[] = [
     role: "Producer",
     description:
       "After anthrax-laced letters kill five people in the weeks following 9/11, one of the largest investigations in FBI history spirals into uncertainty.",
+    trailer: anthraxTrailer,
   },
   {
     title: "The Bering",
