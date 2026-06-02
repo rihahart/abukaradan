@@ -354,6 +354,17 @@ function WorkPage() {
                 </p>
               )}
               {w.trailer && <TrailerPlayer src={w.trailer} appleLink={w.appleLink} />}
+              {!w.trailer && w.appleLink && (
+                <a
+                  href={w.appleLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center gap-1.5 text-[11px] font-medium text-foreground/50 transition-colors hover:text-foreground"
+                >
+                  {w.appleLink.includes("audible.com") ? "Open in Audible" : "Open in Apple Podcasts"}
+                  <ArrowUpRight size={13} strokeWidth={2} />
+                </a>
+              )}
             </div>
           </article>
         ))}
