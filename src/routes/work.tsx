@@ -187,7 +187,7 @@ function TrailerPlayer({ src }: { src: string }) {
         {/* Play / Pause */}
         <button
           onClick={togglePlay}
-          className="flex flex-shrink-0 items-center justify-center text-white transition-opacity hover:opacity-70"
+          className="flex flex-shrink-0 items-center justify-center text-foreground transition-opacity hover:opacity-70"
           aria-label={isPlaying ? "Pause" : "Play"}
         >
           {isPlaying ? (
