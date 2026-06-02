@@ -31,7 +31,7 @@ const fuse = new Fuse(works, {
   includeScore: true,
 });
 
-const BAR_COUNT = 65;
+const BAR_COUNT = 80;
 
 function TrailerPlayer({ src }: { src: string }) {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -49,8 +49,11 @@ function TrailerPlayer({ src }: { src: string }) {
       return (h >>> 0) / 0xffffffff;
     };
     return Array.from({ length: BAR_COUNT }, (_, i) => {
-      const envelope = 0.3 + 0.7 * Math.sin((i / BAR_COUNT) * Math.PI);
-      return Math.max(8, Math.round((0.15 + rand() * 0.85) * envelope * 100));
+      const x = i / BAR_COUNT;
+      // Multi-cycle sine creates repeating peaks like a real waveform
+      const wave = Math.abs(Math.sin(x * Math.PI * 10));
+      const noise = rand() * 0.18;
+      return Math.max(8, Math.round((wave * 0.82 + noise + 0.05) * 100));
     });
   }, [src]);
 
@@ -131,7 +134,7 @@ function TrailerPlayer({ src }: { src: string }) {
         </button>
 
         <div
-          className="flex flex-1 cursor-pointer items-end gap-[2px] h-9"
+          className="flex flex-1 cursor-pointer items-center gap-px h-10"
           onClick={seek}
           role="slider"
           aria-valuemin={0}
@@ -139,17 +142,18 @@ function TrailerPlayer({ src }: { src: string }) {
           aria-valuenow={Math.round(progress * 100)}
         >
           {bars.map((barH, i) => (
-            <div
-              key={i}
-              className="flex-1 rounded-full"
-              style={{
-                height: `${barH}%`,
-                background:
-                  i / BAR_COUNT < progress
-                    ? "rgb(255 255 255)"
-                    : "rgba(255 255 255 / 0.2)",
-              }}
-            />
+            <div key={i} className="flex-1 h-full flex items-center">
+              <div
+                className="w-full rounded-full"
+                style={{
+                  height: `${barH}%`,
+                  background:
+                    i / BAR_COUNT < progress
+                      ? "rgb(255 255 255)"
+                      : "rgba(255 255 255 / 0.55)",
+                }}
+              />
+            </div>
           ))}
         </div>
 
