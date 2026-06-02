@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Search, LinkedinIcon, InstagramIcon, Play, Pause } from "lucide-react";
+import { Search, LinkedinIcon, InstagramIcon, Play, Pause, ArrowUpRight } from "lucide-react";
 import Fuse from "fuse.js";
 import { works, toSlug } from "@/data/works";
 
@@ -33,7 +33,7 @@ const fuse = new Fuse(works, {
 
 const BAR_COUNT = 60;
 
-function TrailerPlayer({ src }: { src: string }) {
+function TrailerPlayer({ src, appleLink }: { src: string; appleLink?: string }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const audioCtxRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
@@ -233,6 +233,17 @@ function TrailerPlayer({ src }: { src: string }) {
         </span>
       </div>
       <audio ref={audioRef} src={src} preload="metadata" />
+      {appleLink && (
+        <a
+          href={appleLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-foreground/50 transition-colors hover:text-foreground"
+        >
+          Open in Apple Podcasts
+          <ArrowUpRight size={13} strokeWidth={2} />
+        </a>
+      )}
     </div>
   );
 }
@@ -342,7 +353,7 @@ function WorkPage() {
                   {w.description}
                 </p>
               )}
-              {w.trailer && <TrailerPlayer src={w.trailer} />}
+              {w.trailer && <TrailerPlayer src={w.trailer} appleLink={w.appleLink} />}
             </div>
           </article>
         ))}

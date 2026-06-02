@@ -27,6 +27,7 @@ export type Work = {
   award?: string;
   description?: string;
   trailer?: string;
+  appleLink?: string;
 };
 
 export function toSlug(title: string): string {
