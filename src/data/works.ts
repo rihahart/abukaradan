@@ -78,16 +78,6 @@ export const works: Work[] = [
     appleLink: "https://www.audible.com/pd/The-Last-Days-of-Cabrini-Green-Audiobook/B0DLX31RNW",
   },
   {
-    title: "Hollywood Con Queen",
-    cover: chameleon,
-    studio: "A Campside Media Original",
-    role: "Associate Producer",
-    description:
-      "Hundreds of aspiring filmmakers are lured to Indonesia by a powerful Hollywood executive who doesn't exist.",
-    trailer: hollywoodConQueenTrailer,
-    appleLink: "https://podcasts.apple.com/us/podcast/chameleon-hollywood-con-queen/id1627340929",
-  },
-  {
     title: "Catch Me If You Ken",
     cover: catchKen,
     studio: "Sony Music · Campside Media",
@@ -96,6 +86,16 @@ export const works: Work[] = [
       "A globe-spanning investigation into an alleged con artist who left behind a trail of scams, aliases, and unanswered questions.",
     trailer: catchKenTrailer,
     appleLink: "https://podcasts.apple.com/us/podcast/catch-me-if-you-ken/id1860940481",
+  },
+  {
+    title: "Hollywood Con Queen",
+    cover: chameleon,
+    studio: "A Campside Media Original",
+    role: "Associate Producer",
+    description:
+      "Hundreds of aspiring filmmakers are lured to Indonesia by a powerful Hollywood executive who doesn't exist.",
+    trailer: hollywoodConQueenTrailer,
+    appleLink: "https://podcasts.apple.com/us/podcast/chameleon-hollywood-con-queen/id1627340929",
   },
   {
     title: "Dr. Dante",
