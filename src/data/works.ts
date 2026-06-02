@@ -8,6 +8,7 @@ import anthraxThreat from "@/assets/podcasts/anthrax-threat.webp";
 import theBering from "@/assets/podcasts/the-bering.webp";
 import weCameToTheForest from "@/assets/podcasts/we-came-to-the-forest.webp";
 import wildBoysCover from "@/assets/podcasts/wild-boys.webp";
+import cabriniGreen from "@/assets/podcasts/THE+LAST+DAYS+OF+CABRINI-GREEN_FINAL[2].webp";
 
 import wildBoysTrailer from "@/assets/Trailers/Wild Boys-Introducing_ Wild Boys.mp3";
 import runFoolTrailer from "@/assets/Trailers/Run Fool_Trailer_FINAL MIX.wav";
@@ -126,6 +127,15 @@ export const works: Work[] = [
       "After anthrax-laced letters kill five people in the weeks following 9/11, one of the largest investigations in FBI history spirals into uncertainty.",
     trailer: anthraxTrailer,
     appleLink: "https://podcasts.apple.com/us/podcast/the-anthrax-threat/id1744432589",
+  },
+  {
+    title: "The Last Days of Cabrini-Green",
+    cover: cabriniGreen,
+    studio: "Audible Original",
+    role: "Producer",
+    description:
+      "A hybrid fiction-nonfiction series exploring the final years of Chicago's Cabrini-Green housing projects and the lives shaped by its demolition.",
+    appleLink: "https://www.audible.com/pd/The-Last-Days-of-Cabrini-Green-Audiobook/B0DLX31RNW",
   },
   {
     title: "The Bering",

@@ -240,7 +240,7 @@ function TrailerPlayer({ src, appleLink }: { src: string; appleLink?: string }) 
           rel="noopener noreferrer"
           className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-foreground/50 transition-colors hover:text-foreground"
         >
-          Open in Apple Podcasts
+          {appleLink.includes("audible.com") ? "Open in Audible" : "Open in Apple Podcasts"}
           <ArrowUpRight size={13} strokeWidth={2} />
         </a>
       )}
