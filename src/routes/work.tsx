@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import Fuse from "fuse.js";
-import { works } from "@/data/works";
+import { works, toSlug } from "@/data/works";
 
 export const Route = createFileRoute("/work")({
   component: WorkPage,
@@ -33,6 +33,14 @@ const fuse = new Fuse(works, {
 
 function WorkPage() {
   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const el = document.getElementById(hash);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
   const filtered = useMemo(
     () =>
       query.trim()
@@ -94,6 +102,7 @@ function WorkPage() {
         {filtered.map((w, i) => (
           <article
             key={w.title}
+            id={toSlug(w.title)}
             className={`group flex flex-col gap-8 py-12 md:flex-row md:gap-24 md:py-16 ${i > 0 ? "border-t border-border" : ""}`}
           >
             {/* Cover */}

@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import portrait from "@/assets/abukar-adan.jpg";
-import { works, type Work } from "@/data/works";
+import { works, toSlug, type Work } from "@/data/works";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -74,7 +74,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
               key={w.title}
               className="flex-[0_0_60%] min-w-0 sm:flex-[0_0_32%] md:flex-[0_0_25%] lg:flex-[0_0_20%] pl-3 md:pl-4"
             >
-              <div className="group cursor-pointer">
+              <a href={`/work#${toSlug(w.title)}`} className="group block">
                 <div className="relative aspect-square overflow-hidden bg-neutral-900 rounded-sm">
                   <img
                     src={w.cover}
@@ -92,7 +92,7 @@ function WorkCarousel({ works }: { works: Work[] }) {
                   </h3>
                   <p className="mt-1.5 text-[10px] md:text-[12px] font-semibold text-muted">{w.role}</p>
                 </div>
-              </div>
+              </a>
             </div>
           ))}
         </div>
@@ -269,7 +269,7 @@ function Index() {
           </h2>
           <div className="mt-8 grid grid-cols-1 gap-16 sm:grid-cols-2 md:gap-20">
             {works.slice(0, 2).map((w) => (
-              <div key={w.title} className="group cursor-pointer">
+              <a key={w.title} href={`/work#${toSlug(w.title)}`} className="group block">
                 <div className="relative aspect-square overflow-hidden rounded-sm bg-neutral-900">
                   <img
                     src={w.cover}
@@ -299,7 +299,7 @@ function Index() {
                     </p>
                   )}
                 </div>
-              </div>
+              </a>
             ))}
           </div>
           <div className="mt-12 md:mt-16 flex justify-end md:justify-start">
