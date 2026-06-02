@@ -50,10 +50,9 @@ function TrailerPlayer({ src }: { src: string }) {
     };
     return Array.from({ length: BAR_COUNT }, (_, i) => {
       const x = i / BAR_COUNT;
-      // Multi-cycle sine creates repeating peaks like a real waveform
-      const wave = Math.abs(Math.sin(x * Math.PI * 16));
-      const noise = rand() * 0.18;
-      return Math.max(8, Math.min(75, Math.round((wave * 0.70 + noise) * 100)));
+      const wave = Math.abs(Math.sin(x * Math.PI * 10));
+      const noise = rand() * 0.05;
+      return Math.max(4, Math.round((wave * 0.92 + noise) * 100));
     });
   }, [src]);
 
@@ -134,7 +133,7 @@ function TrailerPlayer({ src }: { src: string }) {
         </button>
 
         <div
-          className="flex flex-1 cursor-pointer items-center gap-px h-6"
+          className="flex flex-1 cursor-pointer items-center gap-px h-8"
           onClick={seek}
           role="slider"
           aria-valuemin={0}
