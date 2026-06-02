@@ -317,7 +317,6 @@ function Index() {
       {/* FOOTER */}
       <footer className="border-t border-border px-6 py-6 md:px-12 md:py-10">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 text-[11px] uppercase tracking-[0.24em] text-foreground/50 md:flex-row md:items-center">
-          <span>© {new Date().getFullYear()} Abukar Adan</span>
           <div className="flex items-center gap-5">
             <a
               href="https://linkedin.com/in/abukaradan"
@@ -337,13 +336,13 @@ function Index() {
             >
               <InstagramIcon size={16} strokeWidth={1.75} />
             </a>
-            <a
-              href="mailto:abukar.adan@gmail.com"
-              className="transition-colors hover:text-foreground"
-            >
-              abukar.adan@gmail.com
-            </a>
           </div>
+          <a
+            href="mailto:abukar.adan@gmail.com"
+            className="transition-colors hover:text-foreground"
+          >
+            abukar.adan@gmail.com
+          </a>
         </div>
       </footer>
     </div>
