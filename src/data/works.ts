@@ -69,6 +69,15 @@ export const works: Work[] = [
     appleLink: "https://podcasts.apple.com/us/podcast/origin-stories/id1833077585",
   },
   {
+    title: "The Last Days of Cabrini-Green",
+    cover: cabriniGreen,
+    studio: "Audible Original",
+    role: "Producer",
+    description:
+      "A hybrid fiction-nonfiction series exploring the final years of Chicago's Cabrini-Green housing projects and the lives shaped by its demolition.",
+    appleLink: "https://www.audible.com/pd/The-Last-Days-of-Cabrini-Green-Audiobook/B0DLX31RNW",
+  },
+  {
     title: "Hollywood Con Queen",
     cover: chameleon,
     studio: "A Campside Media Original",
@@ -127,15 +136,6 @@ export const works: Work[] = [
       "After anthrax-laced letters kill five people in the weeks following 9/11, one of the largest investigations in FBI history spirals into uncertainty.",
     trailer: anthraxTrailer,
     appleLink: "https://podcasts.apple.com/us/podcast/the-anthrax-threat/id1744432589",
-  },
-  {
-    title: "The Last Days of Cabrini-Green",
-    cover: cabriniGreen,
-    studio: "Audible Original",
-    role: "Producer",
-    description:
-      "A hybrid fiction-nonfiction series exploring the final years of Chicago's Cabrini-Green housing projects and the lives shaped by its demolition.",
-    appleLink: "https://www.audible.com/pd/The-Last-Days-of-Cabrini-Green-Audiobook/B0DLX31RNW",
   },
   {
     title: "The Bering",
