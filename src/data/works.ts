@@ -44,6 +44,7 @@ export const works: Work[] = [
     description:
       "Two young men arrive in a Canadian town claiming they were raised in the wilderness. Nearly twenty years later, journalists Sam Mullins and Abukar Adan set out to uncover the truth.",
     trailer: wildBoysTrailer,
+    appleLink: "https://podcasts.apple.com/us/podcast/wild-boys/id1633676383",
   },
   {
     title: "Run, Fool!",
