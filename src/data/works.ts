@@ -144,5 +144,6 @@ export const works: Work[] = [
     role: "Associate Producer",
     description:
       "When an Alaskan fishing vessel sinks in freezing waters, 47 crew members find themselves at the center of a daring rescue mission.",
+    appleLink: "https://www.audible.com/podcast/The-Bering/B09KDRYRM4",
   },
 ];
