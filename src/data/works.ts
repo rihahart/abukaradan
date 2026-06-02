@@ -55,6 +55,7 @@ export const works: Work[] = [
     description:
       "A weekly horror anthology from Rodney Barnes, featuring original stories inspired by folklore, the supernatural, and the unknown.",
     trailer: runFoolTrailer,
+    appleLink: "https://podcasts.apple.com/us/podcast/run-fool/id1711450527",
   },
   {
     title: "Origin Stories",
@@ -64,6 +65,7 @@ export const works: Work[] = [
     description:
       "A weekly show where acclaimed journalists, filmmakers, authors, and creators unpack the projects that defined their careers.",
     trailer: originStoriesTrailer,
+    appleLink: "https://podcasts.apple.com/us/podcast/origin-stories/id1833077585",
   },
   {
     title: "Hollywood Con Queen",
@@ -73,6 +75,7 @@ export const works: Work[] = [
     description:
       "Hundreds of aspiring filmmakers are lured to Indonesia by a powerful Hollywood executive who doesn't exist.",
     trailer: hollywoodConQueenTrailer,
+    appleLink: "https://podcasts.apple.com/us/podcast/chameleon-hollywood-con-queen/id1627340929",
   },
   {
     title: "Catch Me If You Ken",
@@ -82,6 +85,7 @@ export const works: Work[] = [
     description:
       "A globe-spanning investigation into an alleged con artist who left behind a trail of scams, aliases, and unanswered questions.",
     trailer: catchKenTrailer,
+    appleLink: "https://podcasts.apple.com/us/podcast/catch-me-if-you-ken/id1860940481",
   },
   {
     title: "Dr. Dante",
@@ -91,6 +95,7 @@ export const works: Work[] = [
     description:
       "The story of a hypnotist-turned-con man who spent decades reinventing himself while leaving a trail of fraud and deception.",
     trailer: drDanteTrailer,
+    appleLink: "https://podcasts.apple.com/us/podcast/chameleon-dr-dante/id1706175191",
   },
   {
     title: "Witnessed: Night Shift",
@@ -100,6 +105,7 @@ export const works: Work[] = [
     description:
       "Veterans begin dying under suspicious circumstances at a Missouri VA hospital. Families search for answers as questions mount around a nurse, hospital leadership, and the FBI.",
     trailer: nightShiftTrailer,
+    appleLink: "https://podcasts.apple.com/us/podcast/night-shift/id1777124865",
   },
   {
     title: "We Came to the Forest",
@@ -109,6 +115,7 @@ export const works: Work[] = [
     description:
       "A young activist finds purpose, love, and community in a Georgia forest, until one morning changes everything.",
     trailer: weCameTrailer,
+    appleLink: "https://podcasts.apple.com/us/podcast/we-came-to-the-forest/id1790456066",
   },
   {
     title: "Cover Up: The Anthrax Threat",
@@ -118,6 +125,7 @@ export const works: Work[] = [
     description:
       "After anthrax-laced letters kill five people in the weeks following 9/11, one of the largest investigations in FBI history spirals into uncertainty.",
     trailer: anthraxTrailer,
+    appleLink: "https://podcasts.apple.com/us/podcast/the-anthrax-threat/id1744432589",
   },
   {
     title: "The Bering",
