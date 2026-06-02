@@ -35,12 +35,15 @@ const BAR_COUNT = 80;
 
 function TrailerPlayer({ src }: { src: string }) {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+  const [liveBars, setLiveBars] = useState<number[] | null>(null);
 
-  const bars = useMemo(() => {
+  const staticBars = useMemo(() => {
     let h = 0;
     for (let i = 0; i < src.length; i++) h = ((h << 5) - h + src.charCodeAt(i)) | 0;
     const rand = () => {
@@ -50,35 +53,87 @@ function TrailerPlayer({ src }: { src: string }) {
     };
     return Array.from({ length: BAR_COUNT }, (_, i) => {
       const x = i / BAR_COUNT;
-      const wave = Math.abs(Math.sin(x * Math.PI * 10));
-      const noise = rand() * 0.05;
-      return Math.max(4, Math.round((wave * 0.92 + noise) * 100));
+      const wave = Math.abs(Math.sin(x * Math.PI * 16));
+      const noise = rand() * 0.18;
+      return Math.max(8, Math.min(75, Math.round((wave * 0.70 + noise) * 100)));
     });
   }, [src]);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    const onPlay = () => setIsPlaying(true);
-    const onPause = () => setIsPlaying(false);
-    const onEnded = () => { setIsPlaying(false); setProgress(0); setCurrentTime(0); };
+
+    let animFrame = 0;
+
+    const stopAnim = () => {
+      cancelAnimationFrame(animFrame);
+      setLiveBars(null);
+    };
+
+    const startAnim = () => {
+      const analyser = analyserRef.current;
+      if (!analyser) return;
+      const data = new Uint8Array(analyser.frequencyBinCount);
+      const usable = Math.floor(data.length * 0.55);
+
+      const frame = () => {
+        analyser.getByteFrequencyData(data);
+        const next = Array.from({ length: BAR_COUNT }, (_, i) => {
+          const start = Math.floor((i / BAR_COUNT) * usable);
+          const end = Math.max(start + 1, Math.floor(((i + 1) / BAR_COUNT) * usable));
+          let sum = 0;
+          for (let j = start; j < end; j++) sum += data[j];
+          const avg = sum / (end - start);
+          return Math.max(4, Math.round((avg / 255) * 100));
+        });
+        setLiveBars(next);
+        animFrame = requestAnimationFrame(frame);
+      };
+      animFrame = requestAnimationFrame(frame);
+    };
+
+    const initCtx = () => {
+      if (audioCtxRef.current) return;
+      const ctx = new AudioContext();
+      const source = ctx.createMediaElementSource(audio);
+      const analyser = ctx.createAnalyser();
+      analyser.fftSize = 512;
+      source.connect(analyser);
+      analyser.connect(ctx.destination);
+      audioCtxRef.current = ctx;
+      analyserRef.current = analyser;
+    };
+
+    const onPlay = () => {
+      setIsPlaying(true);
+      initCtx();
+      audioCtxRef.current?.resume().then(startAnim);
+    };
+    const onPause = () => { setIsPlaying(false); stopAnim(); };
+    const onEnded = () => { setIsPlaying(false); stopAnim(); setProgress(0); setCurrentTime(0); };
     const onTime = () => {
       const d = audio.duration || 1;
       setCurrentTime(audio.currentTime);
       setProgress(audio.currentTime / d);
     };
     const onMeta = () => setDuration(audio.duration);
+
     audio.addEventListener("play", onPlay);
     audio.addEventListener("pause", onPause);
     audio.addEventListener("ended", onEnded);
     audio.addEventListener("timeupdate", onTime);
     audio.addEventListener("loadedmetadata", onMeta);
+
     return () => {
       audio.removeEventListener("play", onPlay);
       audio.removeEventListener("pause", onPause);
       audio.removeEventListener("ended", onEnded);
       audio.removeEventListener("timeupdate", onTime);
       audio.removeEventListener("loadedmetadata", onMeta);
+      cancelAnimationFrame(animFrame);
+      audioCtxRef.current?.close();
+      audioCtxRef.current = null;
+      analyserRef.current = null;
     };
   }, []);
 
@@ -114,6 +169,8 @@ function TrailerPlayer({ src }: { src: string }) {
       ? fmt(isPlaying || currentTime > 0 ? currentTime : duration)
       : "—";
 
+  const bars = liveBars ?? staticBars;
+
   return (
     <div className="mt-8">
       <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted">
@@ -133,7 +190,7 @@ function TrailerPlayer({ src }: { src: string }) {
         </button>
 
         <div
-          className="flex flex-1 cursor-pointer items-center gap-px h-8"
+          className="flex flex-1 cursor-pointer items-center gap-px h-6"
           onClick={seek}
           role="slider"
           aria-valuemin={0}
