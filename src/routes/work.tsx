@@ -21,7 +21,7 @@ const nav = [
   { label: "Work", href: "/work" },
   { label: "About", href: "/" },
   { label: "Press", href: "/#press" },
-  { label: "Contact", href: "mailto:abukar.adan@gmail.com" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const fuse = new Fuse(works, {

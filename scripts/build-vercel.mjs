@@ -27,7 +27,7 @@ const { default: server } = await import(
   path.join(root, "dist/server/server.js")
 );
 
-const routes = ["/", "/work"];
+const routes = ["/", "/work", "/contact"];
 
 for (const route of routes) {
   const response = await server.fetch(
