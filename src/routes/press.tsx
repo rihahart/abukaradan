@@ -20,19 +20,19 @@ const nav = [
 ];
 
 const selectedPress = [
-  { label: '"Wild Boys Wins Podcast of The Year,"', pub: "The Hollywood Reporter", href: "https://www.hollywoodreporter.com/business/digital/2023-ambie-awards-winners-list-chameleon-wild-boys-podcast-of-the-year-1235343389/" },
-  { label: '"The best podcasts of 2022,"', pub: "The Atlantic", href: "https://www.theatlantic.com/culture/archive/2022/12/best-podcasts-2022/672613/" },
-  { label: '"The Best True Crime Podcasts of 2022,"', pub: "Vulture", href: "https://www.vulture.com/article/best-true-crime-podcasts-2022.html" },
-  { label: '"Best Podcasts of 2020,"', pub: "Rolling Stone", href: "https://www.rollingstone.com/culture/culture-features/best-podcasts-2020-1105406/" },
-  { label: '"The Best Podcasts for Everyone,"', pub: "Wired", href: "https://www.wired.com/story/best-podcasts/" },
-  { label: '"7 Podcasts About the Art of the Scam,"', pub: "NYT", href: "https://www.nytimes.com/2021/02/16/arts/podcasts-scams-pyramid-schemes.html" },
+  { label: '"Wild Boys Wins Podcast of The Year"', pub: "The Hollywood Reporter", href: "https://www.hollywoodreporter.com/business/digital/2023-ambie-awards-winners-list-chameleon-wild-boys-podcast-of-the-year-1235343389/" },
+  { label: '"The best podcasts of 2022"', pub: "The Atlantic", href: "https://www.theatlantic.com/culture/archive/2022/12/best-podcasts-2022/672613/" },
+  { label: '"The Best True Crime Podcasts of 2022"', pub: "Vulture", href: "https://www.vulture.com/article/best-true-crime-podcasts-2022.html" },
+  { label: '"Best Podcasts of 2020"', pub: "Rolling Stone", href: "https://www.rollingstone.com/culture/culture-features/best-podcasts-2020-1105406/" },
+  { label: '"The Best Podcasts for Everyone"', pub: "Wired", href: "https://www.wired.com/story/best-podcasts/" },
+  { label: '"7 Podcasts About the Art of the Scam"', pub: "NYT", href: "https://www.nytimes.com/2021/02/16/arts/podcasts-scams-pyramid-schemes.html" },
 ];
 
 const aboutMe = [
-  { label: "Abukar Adan and Host Natalie Robehmed discuss Catch Me If You Ken,", pub: "Inside the Tent", href: "https://join.campsidemedia.com/p/inside-the-tent-podcast-catch-me-if-you-ken-natalie-robehmed-abukar-adan" },
-  { label: "Abukar Adan and Host Sam Mullins discuss Wild Boys,", pub: "Inside the Tent", href: "https://join.campsidemedia.com/p/inside-the-tent-podcast-wild-boys-sam-mullins-abukar-adan" },
-  { label: "The Path to Podcasting,", pub: "Colby News", href: "https://news.colby.edu/story/the-path-to-podcasting/" },
-  { label: "Crossover Artist,", pub: "Down East Magazine", href: "https://downeast.com/arts-leisure/crossover-artist/" },
+  { label: "Abukar Adan and Host Natalie Robehmed discuss Catch Me If You Ken", pub: "Inside the Tent", href: "https://join.campsidemedia.com/p/inside-the-tent-podcast-catch-me-if-you-ken-natalie-robehmed-abukar-adan" },
+  { label: "Abukar Adan and Host Sam Mullins discuss Wild Boys", pub: "Inside the Tent", href: "https://join.campsidemedia.com/p/inside-the-tent-podcast-wild-boys-sam-mullins-abukar-adan" },
+  { label: "The Path to Podcasting", pub: "Colby News", href: "https://news.colby.edu/story/the-path-to-podcasting/" },
+  { label: "Crossover Artist", pub: "Down East Magazine", href: "https://downeast.com/arts-leisure/crossover-artist/" },
 ];
 
 const quotes = [
