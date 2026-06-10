@@ -16,7 +16,7 @@ export const Route = createFileRoute("/contact")({
 const nav = [
   { label: "Work", href: "/work" },
   { label: "About", href: "/" },
-  { label: "Press", href: "/#press" },
+  { label: "Press", href: "/press" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -71,7 +71,7 @@ function ContactPage() {
       {/* Split layout */}
       <div className="flex flex-col md:flex-row md:gap-16">
       {/* Left: photo */}
-      <div className="relative h-[55vw] md:h-screen md:w-[45%] sticky top-0 flex-shrink-0 overflow-hidden">
+      <div className="relative h-[66vw] md:h-screen md:w-[45%] sticky top-0 flex-shrink-0 overflow-hidden">
         <img
           src={contactImage}
           alt="Abukar Adan"

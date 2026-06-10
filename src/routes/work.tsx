@@ -20,7 +20,7 @@ export const Route = createFileRoute("/work")({
 const nav = [
   { label: "Work", href: "/work" },
   { label: "About", href: "/" },
-  { label: "Press", href: "/#press" },
+  { label: "Press", href: "/press" },
   { label: "Contact", href: "/contact" },
 ];
 
