@@ -20,12 +20,12 @@ const nav = [
 ];
 
 const selectedPress = [
-  { label: '"Wild Boys Wins Podcast of The Year"', pub: "The Hollywood Reporter", href: "https://www.hollywoodreporter.com/business/digital/2023-ambie-awards-winners-list-chameleon-wild-boys-podcast-of-the-year-1235343389/" },
-  { label: '"The best podcasts of 2022"', pub: "The Atlantic", href: "https://www.theatlantic.com/culture/archive/2022/12/best-podcasts-2022/672613/" },
-  { label: '"The Best True Crime Podcasts of 2022"', pub: "Vulture", href: "https://www.vulture.com/article/best-true-crime-podcasts-2022.html" },
-  { label: '"Best Podcasts of 2020"', pub: "Rolling Stone", href: "https://www.rollingstone.com/culture/culture-features/best-podcasts-2020-1105406/" },
-  { label: '"The Best Podcasts for Everyone"', pub: "Wired", href: "https://www.wired.com/story/best-podcasts/" },
-  { label: '"7 Podcasts About the Art of the Scam"', pub: "NYT", href: "https://www.nytimes.com/2021/02/16/arts/podcasts-scams-pyramid-schemes.html" },
+  { label: "Wild Boys Wins Podcast of The Year", pub: "The Hollywood Reporter", href: "https://www.hollywoodreporter.com/business/digital/2023-ambie-awards-winners-list-chameleon-wild-boys-podcast-of-the-year-1235343389/" },
+  { label: "The best podcasts of 2022", pub: "The Atlantic", href: "https://www.theatlantic.com/culture/archive/2022/12/best-podcasts-2022/672613/" },
+  { label: "The Best True Crime Podcasts of 2022", pub: "Vulture", href: "https://www.vulture.com/article/best-true-crime-podcasts-2022.html" },
+  { label: "Best Podcasts of 2020", pub: "Rolling Stone", href: "https://www.rollingstone.com/culture/culture-features/best-podcasts-2020-1105406/" },
+  { label: "The Best Podcasts for Everyone", pub: "Wired", href: "https://www.wired.com/story/best-podcasts/" },
+  { label: "7 Podcasts About the Art of the Scam", pub: "NYT", href: "https://www.nytimes.com/2021/02/16/arts/podcasts-scams-pyramid-schemes.html" },
 ];
 
 const aboutMe = [
@@ -93,13 +93,13 @@ function PressPage() {
       {/* Press lists */}
       <div className="mx-auto max-w-[1600px] px-6 py-16 md:px-16 md:py-24 space-y-16 md:space-y-20">
 
-        {/* About Me */}
+        {/* Selected Press */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-12">
           <h2 className="font-serif text-foreground text-3xl tracking-tight md:col-span-2 md:text-5xl">
-            About Me
+            Selected Press
           </h2>
           <ul className="md:col-span-3">
-            {aboutMe.map((item, i) => (
+            {selectedPress.map((item, i) => (
               <li key={i} className={`py-4 ${i > 0 ? "border-t border-white/[0.07]" : ""}`}>
                 <a
                   href={item.href}
@@ -119,13 +119,13 @@ function PressPage() {
           </ul>
         </div>
 
-        {/* Selected Press */}
+        {/* About Me */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-12">
           <h2 className="font-serif text-foreground text-3xl tracking-tight md:col-span-2 md:text-5xl">
-            Selected Press
+            About Me
           </h2>
           <ul className="md:col-span-3">
-            {selectedPress.map((item, i) => (
+            {aboutMe.map((item, i) => (
               <li key={i} className={`py-4 ${i > 0 ? "border-t border-white/[0.07]" : ""}`}>
                 <a
                   href={item.href}
